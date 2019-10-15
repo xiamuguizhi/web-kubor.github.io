@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-10-15T07:17:55.618Z</updated>
+    <updated>2019-10-15T07:22:15.166Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -16,31 +16,6 @@
         <link href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
         </link>
         <updated>2019-10-15T06:48:48.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="什么是gitflow工作流">什么是gitflow工作流</h2>
-<p>贯穿整个开发周期，master和develop分支是一直存在的，master分支可以被视为稳定的分支， 而develop分支是相对稳定的分支，特性开发会在feature分支上进行，发布会在release分支上 进行，而bug修复则会在hotfix分支上进行。简单讲下：<br>
-我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
-<p>这里就不介绍git的基本操作命令了,这里主要讲远程仓库管理的一些方法</p>
-<h5 id="首先项目中又两条长期的分支">首先,项目中又两条长期的分支</h5>
-<ul>
-<li>主分支 master(线上)</li>
-<li>开发分支 develop(日常开发分支)</li>
-</ul>
-<p>线上分支即为跑在线上的代码，用户可访问的线上网站</p>
-<p>develop即为日常开发分支，工程师开发完毕后的代码检测（code review）后会申请合并进入dev分支</p>
-<h5 id="其次项目中还有三条短期分支">其次,项目中还有三条短期分支</h5>
-<ul>
-<li>功能分支 feature-branch</li>
-<li>线上补丁分支 hotfix-branch</li>
-<li>主分支 test(预发分支)</li>
-</ul>
-<p>这三条短期分支,在开发完毕后,就需要被合并进master或者是dev分支里去,原来的分支可以在合并后被删除</p>
-<p>feature是项目迭代的功能分支会被分发给工程师开发</p>
-<p>hotfix是一般线上出问题，拉取的紧急分支，需要被马上修复合并上线的分支，一般这个分支的开发权重最高</p>
-<p>test是上线前交给测试检查的分支，一般是部署在公司内部测试域名下的，通过test分支后才会被允许合并进master分支</p>
-<p>为什么？因为它们的修改结果持续影响这后续的开发和维护，必须合并以保证代码的一致性。</p>
-<p>如果你没有认识到这个特性很有用，那是因为你的开发工作还没有复杂到一个程度，一个必须要规避代码干扰、保证并行推进的程度。</p>
-<p>对于小型项目和团队来说，基于GIT的中心式协作模型和特性分支模型就足够了；GitFlow模型适合中型、大型项目和团队。</p>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[mpvue-1年实战开发指南]]></title>
@@ -48,9 +23,6 @@
         <link href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
         </link>
         <updated>2019-10-15T06:31:55.000Z</updated>
-        <content type="html"><![CDATA[<!-- more -->
-<p>test</p>
-]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[2019, 新博客系统首发]]></title>
@@ -58,76 +30,5 @@
         <link href="https://wangenbo.cn//post/hello">
         </link>
         <updated>2019-01-11T16:00:00.000Z</updated>
-        <content type="html"><![CDATA[<p>👏我想用它来记录我的生活、心情、知识、笔记、创意... ...</p>
-<h3 id="2018年">2018年</h3>
-<ul>
-<li>大<s>学顺利毕业，毕设优评</s></li>
-<li><s>熟悉杭州新技术前端体系</s></li>
-<li><s>使用vue开发多个后台管理系统，h5/公众号</s></li>
-<li><s>基于原生，使用mpvue开发两款代表性程序</s></li>
-</ul>
-<h3 id="2019年">2019年</h3>
-<ul>
-<li>
-<p><s>个人公众号上线</s></p>
-</li>
-<li>
-<p><s>使用mpvue + cloud 云开发实战，笛灵上线</s></p>
-</li>
-<li>
-<p><s>koa-mongodb、koa-mysql，koa微服务框架实战</s></p>
-</li>
-<li>
-<p><s>egg企业级后端开发框架， 投入项目使用，接口聚合，满足日常业务需求，敏捷开发，快速上线</s></p>
-</li>
-<li>
-<p><s>养只可爱的猫咪</s></p>
-</li>
-<li>
-<p><s>大学好友一周年杭州聚会</s></p>
-</li>
-<li>
-<p><s>阿里云购买新域名，关联腾讯云闲置ECS，熟练Nginx</s>~~，学习反向代理，屏蔽IP访问。~~</p>
-</li>
-<li>
-<p><s>办理健身卡</s>，每周至少3次（坚持中）</p>
-</li>
-<li>
-<p><s>加深webpack包管理的深化学习，做到精通前端工程的打包技术（学习中）</s></p>
-</li>
-<li>
-<p><s>尝试flutter</s>~~，争取实验性结合原生开发出基本功能的app~~（开发中）</p>
-</li>
-<li>
-<p>学习全球最流行框架react，争取入门（学习中）</p>
-</li>
-<li>
-<p><s>视频后期学习，音频编辑学习（业务入门）</s></p>
-</li>
-<li>
-<p><s>整合平台，个人博客，以及以往开发团队博客，做出基本的内容管理，分别展示（整合中）</s></p>
-<h6 id="生活感悟-发布-个人公众号"><s>生活感悟-发布-个人公众号</s></h6>
-<h6 id="学习新曲子-发布-笛灵小程序"><s>学习新曲子-发布-笛灵小程序</s></h6>
-<h6 id="日常技术分享-发布-个人博客抽空重构优化物理内存占用过大-重新开发用react"><s>日常技术分享-发布-个人博客（抽空重构优化，物理内存占用过大）-重新开发用react</s></h6>
-<h6 id="业务框架迁移易上手项目-发布-简书"><s>业务框架迁移，易上手项目 -发布-简书</s></h6>
-<h6 id="私活小分队-mk强可控代码-eslint配置标准standard风格-发布-团队博客~~"><s>私活小分队-mk强可控代码-eslint配置标准，standard风格 - 发布-团队博客</s>~~</h6>
-</li>
-<li>
-<p><s>个人域名下，合并github上的优质项目，将简历同步到个人网站下，随时更新简历（开发中）</s></p>
-</li>
-</ul>
-<h2 id="特性">特性👇</h2>
-<p>📝  可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  可以对文章进行标签分组</p>
-<p>📋  可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  可以进行简单的配置，接入评论系统</p>
-<p>🇬🇧  可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>😘 Enjoy~</p>
-]]></content>
     </entry>
 </feed>
