@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>关于 | 王恩博的博客 | webkubor</title>
+<title>团队开发-gitflow工作流 | 王恩博的博客 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里" />
 <link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571123818178">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -89,41 +89,55 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              关于
+              团队开发-gitflow工作流
             </h2>
             <div class="post-info">
               <span>
-                2019-01-25
+                2019-10-15
               </span>
               <span>
-                1 min read
+                3 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<p>本次博客使用Gridea的博客管理系统进行博客管理，之后大概会保持一周1-2篇的分享</p>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<p>我啊，我是图图， 八戒， 哈哈小博爷，鸡脖子， 兔儿爷，emm。。。外号有点多</p>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<p>古风迷 笛子，箫， 葫芦丝</p>
-<h2 id="联系我呀">📬 联系我呀</h2>
-<p>请email我， webkubor@163.com</p>
+                <h2 id="什么是gitflow工作流">什么是gitflow工作流</h2>
+<p>贯穿整个开发周期，master和develop分支是一直存在的，master分支可以被视为稳定的分支， 而develop分支是相对稳定的分支，特性开发会在feature分支上进行，发布会在release分支上 进行，而bug修复则会在hotfix分支上进行。简单讲下：<br>
+我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
+<p>这里就不介绍git的基本操作命令了,这里主要讲远程仓库管理的一些方法</p>
+<h5 id="首先项目中又两条长期的分支">首先,项目中又两条长期的分支</h5>
+<ul>
+<li>主分支 master(线上)</li>
+<li>开发分支 develop(日常开发分支)</li>
+</ul>
+<p>线上分支即为跑在线上的代码，用户可访问的线上网站</p>
+<p>develop即为日常开发分支，工程师开发完毕后的代码检测（code review）后会申请合并进入dev分支</p>
+<h5 id="其次项目中还有三条短期分支">其次,项目中还有三条短期分支</h5>
+<ul>
+<li>功能分支 feature-branch</li>
+<li>线上补丁分支 hotfix-branch</li>
+<li>主分支 test(预发分支)</li>
+</ul>
+<p>这三条短期分支,在开发完毕后,就需要被合并进master或者是dev分支里去,原来的分支可以在合并后被删除</p>
+<p>feature是项目迭代的功能分支会被分发给工程师开发</p>
+<p>hotfix是一般线上出问题，拉取的紧急分支，需要被马上修复合并上线的分支，一般这个分支的开发权重最高</p>
+<p>test是上线前交给测试检查的分支，一般是部署在公司内部测试域名下的，通过test分支后才会被允许合并进master分支</p>
+<p>为什么？因为它们的修改结果持续影响这后续的开发和维护，必须合并以保证代码的一致性。</p>
+<p>如果你没有认识到这个特性很有用，那是因为你的开发工作还没有复杂到一个程度，一个必须要规避代码干扰、保证并行推进的程度。</p>
+<p>对于小型项目和团队来说，基于GIT的中心式协作模型和特性分支模型就足够了；GitFlow模型适合中型、大型项目和团队。</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li><a href="#%E5%85%B3%E4%BA%8E%E6%9C%AC%E7%AB%99">🏠 关于本站</a></li>
-<li><a href="#%E5%8D%9A%E4%B8%BB%E6%98%AF%E8%B0%81">👨‍💻 博主是谁</a></li>
-<li><a href="#%E5%85%B4%E8%B6%A3%E7%88%B1%E5%A5%BD">⛹ 兴趣爱好</a></li>
-<li><a href="#%E8%81%94%E7%B3%BB%E6%88%91%E5%91%80">📬 联系我呀</a></li>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AFgitflow%E5%B7%A5%E4%BD%9C%E6%B5%81">什么是gitflow工作流</a><br>
+*<br>
+*<br>
+* <a href="#%E9%A6%96%E5%85%88%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%8F%88%E4%B8%A4%E6%9D%A1%E9%95%BF%E6%9C%9F%E7%9A%84%E5%88%86%E6%94%AF">首先,项目中又两条长期的分支</a><br>
+* <a href="#%E5%85%B6%E6%AC%A1%E9%A1%B9%E7%9B%AE%E4%B8%AD%E8%BF%98%E6%9C%89%E4%B8%89%E6%9D%A1%E7%9F%AD%E6%9C%9F%E5%88%86%E6%94%AF">其次,项目中还有三条短期分支</a></li>
 </ul>
 </li>
 </ul>
@@ -133,6 +147,15 @@
           </article>
         </div>
 
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
+              <h3 class="post-title">
+                mpvue-1年实战开发指南
+              </h3>
+            </a>
+          </div>
         
 
         
