@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>王恩博的博客 | webkubor</title>
+<title>基于vue的支付方式总结 | 王恩博的博客 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里" />
 <link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640130062">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -95,28 +95,26 @@
   </div>
 </div>
 
-    
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
-        <h2 class="post-title">基于vue的支付方式总结</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2019-10-21
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie" class="post-feature-image" style="background-image: url('https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg')">
-        </a>
-      
-      <div class="post-abstract">
-        <h2 id="支付概述">支付概述</h2>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              基于vue的支付方式总结
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-10-21
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h2 id="支付概述">支付概述</h2>
 <p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：<br>
 <img src="https://wangenbo.cn//post-images/1571636471860.png" alt=""></p>
 <p>每种支付场景各有各的特点，各有各的难点，我接下来详细的就分别讲下：</p>
@@ -258,109 +256,79 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
 </code></pre>
 <h2 id="支付宝支付pc移动皆可用">支付宝支付(pc，移动皆可用)</h2>
 <p>支付宝支付一般主要工作都是在后端，在vue中使用，这四行代码就够了，后端会直接返回form表单，我们直接提交即可</p>
+<!-- more -->
+<!-- more -->
+<pre><code>   aplipyPay (html) {
+      const div = document.createElement('div')
+      div.innerHTML = html
+      document.body.appendChild(div)
+      document.forms.alipaysubmit.submit()
+    },
+</code></pre>
 
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
-        <h2 class="post-title">团队开发-gitflow工作流</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2019-10-15
-        </span>
-        <span>
-          3 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/T896Vxd_i" class="post-tag">
-            # git
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/k_BUtMNdD" class="post-tag">
-            # gitflow
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-Gho3hoKinW8.jpg')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
-        <h2 class="post-title">多端框架小程序框架评测-mpvue为例</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2019-10-15
-        </span>
-        <span>
-          1 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/Qg2NNW6TK" class="post-tag">
-            # 微信小程序
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/IunBn7odt" class="post-tag">
-            # weapp
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-UcSUe1aFq94.jpg')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-    <article class="post">
-      <a href="https://wangenbo.cn//post/hello">
-        <h2 class="post-title">2019- Plan</h2>
-      </a>
-      <div class="post-info">
-        <span>
-          2019-01-12
-        </span>
-        <span>
-          3 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/qX-eXkbF6" class="post-tag">
-            # 王恩博
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/TP4kY2V61" class="post-tag">
-            # 心情
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/hello" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-14-WechatIMG573.jpeg')">
-        </a>
-      
-      <div class="post-abstract">
-        
-      </div>
-    </article>
-  
-</div>
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%94%AF%E4%BB%98%E6%A6%82%E8%BF%B0">支付概述</a></li>
+<li><a href="#%E5%BE%AE%E4%BF%A1%E5%86%85%E6%94%AF%E4%BB%98">微信内支付</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%951">方法1：</a></li>
+<li><a href="#%E6%96%B9%E6%B3%952">方法2：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BE%AE%E4%BF%A1h5%E6%94%AF%E4%BB%98-%E9%80%82%E7%94%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80%E5%B9%B6%E9%80%89%E6%8B%A9%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98">微信h5支付-适用移动端浏览器打开并选择微信支付</a></li>
+<li><a href="#%E5%BE%AE%E4%BF%A1pc%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98-%E7%94%B5%E8%84%91%E6%94%AF%E4%BB%98">微信PC扫码支付-电脑支付</a></li>
+<li><a href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98pc%E7%A7%BB%E5%8A%A8%E7%9A%86%E5%8F%AF%E7%94%A8">支付宝支付(pc，移动皆可用)</a></li>
+</ul>
+</li>
+</ul>
 
-    
-        <div class="pagination-container">
-  
-  
-</div>
+              </div>
+            </div>
+          </article>
+        </div>
 
-    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
+              <h3 class="post-title">
+                团队开发-gitflow工作流
+              </h3>
+            </a>
+          </div>
+        
+
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: 'e80f1cb574c2112fb479',
+    clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+    repo: 'web-kubor.github.io',
+    owner: 'web-kubor',
+    admin: ['web-kubor'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+
         <div class="site-footer">
   Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
   <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
