@@ -1,120 +1,89 @@
+
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>王恩博的博客 | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里" />
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640364005">
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640599508">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-150312221-1');
-</script>
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://wangenbo.cn/">
-  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1571640364005" alt="">
-  </a>
-  <h1 class="site-title">
-    王恩博的博客 | webkubor
-  </h1>
-  <p class="site-description">
-    不积跬步，无以至千里
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-        <a href="https://github.com/web-kubor" target="_blank">
-          <i class="fab fa-github"></i>
-        </a>
-      
-    
-      
-    
-      
-        <a href="https://weibo.com/wangenbo945" target="_blank">
-          <i class="fab fa-weibo"></i>
-        </a>
-      
-    
-      
-        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
-          <i class="fab fa-zhihu"></i>
-        </a>
-      
-    
-      
-        <a href="https://www.facebook.com/WangEnbo" target="_blank">
-          <i class="fab fa-facebook"></i>
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://wangenbo.cn/">
+        <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1571640599508" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://wangenbo.cn/">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
-    
-        <div class="post-container">
-  
-    <article class="post">
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
       <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
         <h2 class="post-title">基于vue的支付方式总结</h2>
       </a>
-      <div class="post-info">
-        <span>
-          2019-10-21
-        </span>
-        <span>
-          5 min read
-        </span>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie" class="post-feature-image" style="background-image: url('https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg')">
-        </a>
-      
       <div class="post-abstract">
         <h2 id="支付概述">支付概述</h2>
 <p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：<br>
@@ -260,154 +229,177 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
 <p>支付宝支付一般主要工作都是在后端，在vue中使用，这四行代码就够了，后端会直接返回form表单，我们直接提交即可</p>
 
       </div>
-    </article>
-  
-    <article class="post">
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-10-21</span>
+        
+      </div>
+    </div>
+    
+      <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
+        <div class="feature-container" style="background-image: url('https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
         <h2 class="post-title">团队开发-gitflow工作流</h2>
       </a>
-      <div class="post-info">
-        <span>
-          2019-10-15
-        </span>
-        <span>
-          3 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/T896Vxd_i" class="post-tag">
-            # git
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/k_BUtMNdD" class="post-tag">
-            # gitflow
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-Gho3hoKinW8.jpg')">
-        </a>
-      
       <div class="post-abstract">
         
       </div>
-    </article>
-  
-    <article class="post">
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-10-15</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://wangenbo.cn//tag/T896Vxd_i">
+                git
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://wangenbo.cn//tag/k_BUtMNdD">
+                gitflow
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
+        <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-Gho3hoKinW8.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
         <h2 class="post-title">多端框架小程序框架评测-mpvue为例</h2>
       </a>
-      <div class="post-info">
-        <span>
-          2019-10-15
-        </span>
-        <span>
-          1 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/Qg2NNW6TK" class="post-tag">
-            # 微信小程序
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/IunBn7odt" class="post-tag">
-            # weapp
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-UcSUe1aFq94.jpg')">
-        </a>
-      
       <div class="post-abstract">
         
       </div>
-    </article>
-  
-    <article class="post">
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-10-15</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://wangenbo.cn//tag/Qg2NNW6TK">
+                微信小程序
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://wangenbo.cn//tag/IunBn7odt">
+                weapp
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
+        <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-UcSUe1aFq94.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
       <a href="https://wangenbo.cn//post/hello">
         <h2 class="post-title">2019- Plan</h2>
       </a>
-      <div class="post-info">
-        <span>
-          2019-01-12
-        </span>
-        <span>
-          3 min read
-        </span>
-        
-          <a href="https://wangenbo.cn//tag/qX-eXkbF6" class="post-tag">
-            # 王恩博
-          </a>
-        
-          <a href="https://wangenbo.cn//tag/TP4kY2V61" class="post-tag">
-            # 心情
-          </a>
-        
-      </div>
-      
-        <a href="https://wangenbo.cn//post/hello" class="post-feature-image" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-14-WechatIMG573.jpeg')">
-        </a>
-      
       <div class="post-abstract">
         
       </div>
-    </article>
-  
-</div>
-
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2019-01-12</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://wangenbo.cn//tag/qX-eXkbF6">
+                王恩博
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://wangenbo.cn//tag/TP4kY2V61">
+                心情
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
     
-        <div class="pagination-container">
-  
-  
-</div>
-
+      <a href="https://wangenbo.cn//post/hello">
+        <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-14-WechatIMG573.jpeg')">
+        </div>
+      </a>
     
-        <div class="site-footer">
-  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
-  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+  </section>
+
+
+<div class="pagination-container">
+  
+  
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
 
-  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+      </div>
 
-  // This should probably be throttled.
-  // Especially because it triggers during smooth scrolling.
-  // https://lodash.com/docs/4.17.10#throttle
-  // You could do like...
-  // window.addEventListener("scroll", () => {
-  //    _.throttle(doThatStuff, 100);
-  // });
-  // Only not doing it here to keep this Pen dependency-free.
+      <div class="site-footer">
+  <div class="slogan">不积跬步，无以至千里</div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-  window.addEventListener("scroll", event => {
-    let fromTop = window.scrollY;
 
-    mainNavLinks.forEach((link, index) => {
-      let section = document.getElementById(decodeURI(link.hash).substring(1));
-      let nextSection = null
-      if (mainNavLinks[index + 1]) {
-        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
-      }
-      if (section.offsetTop <= fromTop) {
-        if (nextSection) {
-          if (nextSection.offsetTop > fromTop) {
-            link.classList.add("current");
-          } else {
-            link.classList.remove("current");    
-          }
-        } else {
-          link.classList.add("current");
-        }
-      } else {
-        link.classList.remove("current");
-      }
-    });
-  });
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
 
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
