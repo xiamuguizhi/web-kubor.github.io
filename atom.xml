@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-10-21T06:55:11.079Z</updated>
+    <updated>2019-10-21T07:00:16.473Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -16,291 +16,9 @@
         <link href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
         </link>
         <updated>2019-10-21T05:26:52.000Z</updated>
-        <summary type="html"><![CDATA[<h2 id="支付概述">支付概述</h2>
-<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：<br>
-<img src="https://wangenbo.cn//post-images/1571636471860.png" alt=""></p>
-<p>每种支付场景各有各的特点，各有各的难点，我接下来详细的就分别讲下：</p>
-<h2 id="微信内支付">微信内支付</h2>
-<p>微信内支付，微信内其实上是有个微信内置浏览器，受微信限制的同时它还具有微信沙箱下的各类API，<br>
-当前微信内支付，主流有两中做法：</p>
-<h3 id="方法1">方法1：</h3>
-<p>使用项目(美控家商城，微信内公众号可搜)</p>
-<ul>
-<li>判断pc端和移动端</li>
-<li>npm 安装wxSDK</li>
-<li>配置sdk参数回调</li>
-<li>注意先后顺序，先config再choosewxpay</li>
-<li>路由配置支付成功，失败后的显示调整</li>
-</ul>
-<pre><code>import wx from 'weixin-js-sdk'
-//传入config参数配置，参数名请参考微信开发文档，这里只提供技术实现方案
-fetchJsSdkConfig () {
-      var url = window.location.href
-      var apis = ['chooseWXPay']
-      CommonActions.getJsSdkConfig(url, apis).then(data =&gt; {
-        wx.config(data)
-      }).catch(err =&gt; this.$toast(err.msg))
-    }
-// 接下来，在微信环境下调用chooseWXPay方式支付（判断微信微信环境自己封装个，网站也很多，很容易，不多讲）
-   pay () {
-      this.submit_loading = true
-      var that = this
-      OrderAction.pay(this.order.id).then(data =&gt; {
-        if (Helper.isWechat()) {
-          data.success = function () {
-            that.$router.push('/order/detail/' + that.order.id)
-          }
-          wx.chooseWXPay(data)
-        } else {
-          var url = data
-          var redirectUrl = window.location.protocol + '//' + window.location.host + '/order/detail/' + that.order.id
-          url = url + '&amp;redirect_url=' + encodeURIComponent(redirectUrl)
-          window.location.href = url
-        }
-        this.submit_loading = false
-      }).catch((err) =&gt; {
-        this.submit_loading = false
-        if (err.code === 1003) this.loginGuide(err.msg)
-        else { this.$toast(err.msg) }
-      })
-    },
-
-```js
-</code></pre>
-<h3 id="方法2">方法2：</h3>
-<p>近期我在开发一个新项目的时候，使用方式1出现了不可抗力的bug，大概花了我将近1天的时间排查，然而并没有结果，为了不影响项目进度，我用原生js借助开发文档，自己封装了个，微信内支付函数(复制可用)</p>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断是否是微信环境</li>
-</ul>
-<pre><code>// 我的工具函数文件内
-export function jsSDK (params) {
-  if (typeof window.WeixinJSBridge === 'undefined') {
-    if (document.addEventListener) {
-      document.addEventListener('WeixinJSBridgeReady', function () { onBridgeReady(params) }, false)
-    } else if (document.attachEvent) {
-      document.attachEvent('WeixinJSBridgeReady', function () { onBridgeReady(params) })
-      document.attachEvent('onWeixinJSBridgeReady', function () { onBridgeReady(params) })
-    }
-  } else {
-    onBridgeReady(params)
-  }
-}
-
-function onBridgeReady (params) {
-  window.WeixinJSBridge.invoke(
-    'getBrandWCPayRequest', {
-      'appId': params.appId, // 公众号名称，由商户传入
-      'timeStamp': params.timeStamp, // 时间戳，自1970年以来的秒数
-      'nonceStr': params.nonceStr, // 随机串
-      'package': params.package,
-      'signType': params.signType, // 微信签名方式：
-      'paySign': params.paySign // 微信签名
-    },
-    function (res) {
-      if (res.err_msg === 'get_brand_wcpay_request:ok') {
-        // 使用以上方式判断前端返回,微信团队郑重提示：
-        // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-        location.href = window.location.protocol + '//' + window.location.host + '/pay/success'
-      } else {
-        location.href = window.location.protocol + '//' + window.location.host + '/pay/fail'
-      }
-    }
-  )
-}
-</code></pre>
-<p>你只需要暴露出一个jsSDK方法，在业务中直接调用即可,两行代码搞定微信内支付，目前没有发现在ios和安卓上有什么异常状况<br>
-例如(使用):</p>
-<pre><code>import * as Helper from '@/helper'
-Helper.jsSDK(wxObj)
-</code></pre>
-<h2 id="微信h5支付-适用移动端浏览器打开并选择微信支付">微信h5支付-适用移动端浏览器打开并选择微信支付</h2>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断是否是微信环境</li>
-<li>了解encodeURIComponent</li>
-<li>重定向头部域名获取</li>
-<li>本地跳转<br>
-result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规定好目标调转页面即可，例如redirectUrl</li>
-</ul>
-<pre><code> case 2:
-          var redirectUrl =
-            window.location.protocol +
-            '//' +
-            window.location.host +
-            '/pay/detail/' +
-            this.order.order_no
-          url =
-            result.pay_info.mweb_url +
-            '&amp;redirect_url=' +
-            encodeURIComponent(redirectUrl)
-          window.location.href = url
-          break
-</code></pre>
-<h2 id="微信pc扫码支付-电脑支付">微信PC扫码支付-电脑支付</h2>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断支付方式</li>
-<li>需要url渲染二维码功能（插件实现）</li>
-<li>延时函数，确保二维码图片渲染成功后再向用户弹出模态框</li>
-</ul>
-<pre><code>   case 3:
-          this.payLink = result.pay_info.code_url
-          this.QrCodeShow = true
-          var t = setInterval(() =&gt; {
-            setTimeout(this.checkOrderStatus(), 0)
-            if (this.order_status === true) {
-              clearInterval(t)
-              this.$router.push('/pay/success')
-            }
-          }, 2000)
-          break
-</code></pre>
-<h2 id="支付宝支付pc移动皆可用">支付宝支付(pc，移动皆可用)</h2>
-<p>支付宝支付一般主要工作都是在后端，在vue中使用，这四行代码就够了，后端会直接返回form表单，我们直接提交即可</p>
+        <summary type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
 ]]></summary>
-        <content type="html"><![CDATA[<h2 id="支付概述">支付概述</h2>
-<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：<br>
-<img src="https://wangenbo.cn//post-images/1571636471860.png" alt=""></p>
-<p>每种支付场景各有各的特点，各有各的难点，我接下来详细的就分别讲下：</p>
-<h2 id="微信内支付">微信内支付</h2>
-<p>微信内支付，微信内其实上是有个微信内置浏览器，受微信限制的同时它还具有微信沙箱下的各类API，<br>
-当前微信内支付，主流有两中做法：</p>
-<h3 id="方法1">方法1：</h3>
-<p>使用项目(美控家商城，微信内公众号可搜)</p>
-<ul>
-<li>判断pc端和移动端</li>
-<li>npm 安装wxSDK</li>
-<li>配置sdk参数回调</li>
-<li>注意先后顺序，先config再choosewxpay</li>
-<li>路由配置支付成功，失败后的显示调整</li>
-</ul>
-<pre><code>import wx from 'weixin-js-sdk'
-//传入config参数配置，参数名请参考微信开发文档，这里只提供技术实现方案
-fetchJsSdkConfig () {
-      var url = window.location.href
-      var apis = ['chooseWXPay']
-      CommonActions.getJsSdkConfig(url, apis).then(data =&gt; {
-        wx.config(data)
-      }).catch(err =&gt; this.$toast(err.msg))
-    }
-// 接下来，在微信环境下调用chooseWXPay方式支付（判断微信微信环境自己封装个，网站也很多，很容易，不多讲）
-   pay () {
-      this.submit_loading = true
-      var that = this
-      OrderAction.pay(this.order.id).then(data =&gt; {
-        if (Helper.isWechat()) {
-          data.success = function () {
-            that.$router.push('/order/detail/' + that.order.id)
-          }
-          wx.chooseWXPay(data)
-        } else {
-          var url = data
-          var redirectUrl = window.location.protocol + '//' + window.location.host + '/order/detail/' + that.order.id
-          url = url + '&amp;redirect_url=' + encodeURIComponent(redirectUrl)
-          window.location.href = url
-        }
-        this.submit_loading = false
-      }).catch((err) =&gt; {
-        this.submit_loading = false
-        if (err.code === 1003) this.loginGuide(err.msg)
-        else { this.$toast(err.msg) }
-      })
-    },
-
-```js
-</code></pre>
-<h3 id="方法2">方法2：</h3>
-<p>近期我在开发一个新项目的时候，使用方式1出现了不可抗力的bug，大概花了我将近1天的时间排查，然而并没有结果，为了不影响项目进度，我用原生js借助开发文档，自己封装了个，微信内支付函数(复制可用)</p>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断是否是微信环境</li>
-</ul>
-<pre><code>// 我的工具函数文件内
-export function jsSDK (params) {
-  if (typeof window.WeixinJSBridge === 'undefined') {
-    if (document.addEventListener) {
-      document.addEventListener('WeixinJSBridgeReady', function () { onBridgeReady(params) }, false)
-    } else if (document.attachEvent) {
-      document.attachEvent('WeixinJSBridgeReady', function () { onBridgeReady(params) })
-      document.attachEvent('onWeixinJSBridgeReady', function () { onBridgeReady(params) })
-    }
-  } else {
-    onBridgeReady(params)
-  }
-}
-
-function onBridgeReady (params) {
-  window.WeixinJSBridge.invoke(
-    'getBrandWCPayRequest', {
-      'appId': params.appId, // 公众号名称，由商户传入
-      'timeStamp': params.timeStamp, // 时间戳，自1970年以来的秒数
-      'nonceStr': params.nonceStr, // 随机串
-      'package': params.package,
-      'signType': params.signType, // 微信签名方式：
-      'paySign': params.paySign // 微信签名
-    },
-    function (res) {
-      if (res.err_msg === 'get_brand_wcpay_request:ok') {
-        // 使用以上方式判断前端返回,微信团队郑重提示：
-        // res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
-        location.href = window.location.protocol + '//' + window.location.host + '/pay/success'
-      } else {
-        location.href = window.location.protocol + '//' + window.location.host + '/pay/fail'
-      }
-    }
-  )
-}
-</code></pre>
-<p>你只需要暴露出一个jsSDK方法，在业务中直接调用即可,两行代码搞定微信内支付，目前没有发现在ios和安卓上有什么异常状况<br>
-例如(使用):</p>
-<pre><code>import * as Helper from '@/helper'
-Helper.jsSDK(wxObj)
-</code></pre>
-<h2 id="微信h5支付-适用移动端浏览器打开并选择微信支付">微信h5支付-适用移动端浏览器打开并选择微信支付</h2>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断是否是微信环境</li>
-<li>了解encodeURIComponent</li>
-<li>重定向头部域名获取</li>
-<li>本地跳转<br>
-result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规定好目标调转页面即可，例如redirectUrl</li>
-</ul>
-<pre><code> case 2:
-          var redirectUrl =
-            window.location.protocol +
-            '//' +
-            window.location.host +
-            '/pay/detail/' +
-            this.order.order_no
-          url =
-            result.pay_info.mweb_url +
-            '&amp;redirect_url=' +
-            encodeURIComponent(redirectUrl)
-          window.location.href = url
-          break
-</code></pre>
-<h2 id="微信pc扫码支付-电脑支付">微信PC扫码支付-电脑支付</h2>
-<ul>
-<li>判断pc端和移动端</li>
-<li>判断支付方式</li>
-<li>需要url渲染二维码功能（插件实现）</li>
-<li>延时函数，确保二维码图片渲染成功后再向用户弹出模态框</li>
-</ul>
-<pre><code>   case 3:
-          this.payLink = result.pay_info.code_url
-          this.QrCodeShow = true
-          var t = setInterval(() =&gt; {
-            setTimeout(this.checkOrderStatus(), 0)
-            if (this.order_status === true) {
-              clearInterval(t)
-              this.$router.push('/pay/success')
-            }
-          }, 2000)
-          break
-</code></pre>
-<h2 id="支付宝支付pc移动皆可用">支付宝支付(pc，移动皆可用)</h2>
-<p>支付宝支付一般主要工作都是在后端，在vue中使用，这四行代码就够了，后端会直接返回form表单，我们直接提交即可</p>
+        <content type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
 ]]></content>
     </entry>
     <entry>
@@ -309,6 +27,10 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
         <link href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
         </link>
         <updated>2019-10-15T06:48:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
+]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[多端框架小程序框架评测-mpvue为例]]></title>
@@ -323,5 +45,9 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
         <link href="https://wangenbo.cn//post/hello">
         </link>
         <updated>2019-01-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏我想用它来记录我的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏我想用它来记录我的生活、心情、知识、笔记、创意... ...</p>
+]]></content>
     </entry>
 </feed>

@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640908143">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571641211921">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1571640908143" class="site-logo">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571641211921" class="site-logo">
         <h1 class="site-title">王恩博的博客 | webkubor</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -113,14 +113,15 @@
               </div>
             
             <div class="post-content">
-              <h2 id="支付概述">支付概述</h2>
-<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：<br>
-<img src="https://wangenbo.cn//post-images/1571636471860.png" alt=""></p>
+              <p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
+<!-- more -->
+<h3 id="支付概述">支付概述</h3>
+<figure data-type="image" tabindex="1"><img src="https://wangenbo.cn//post-images/1571636471860.png" alt=""></figure>
 <p>每种支付场景各有各的特点，各有各的难点，我接下来详细的就分别讲下：</p>
-<h2 id="微信内支付">微信内支付</h2>
+<h3 id="微信内支付">微信内支付</h3>
 <p>微信内支付，微信内其实上是有个微信内置浏览器，受微信限制的同时它还具有微信沙箱下的各类API，<br>
 当前微信内支付，主流有两中做法：</p>
-<h3 id="方法1">方法1：</h3>
+<h4 id="方法1">方法1：</h4>
 <p>使用项目(美控家商城，微信内公众号可搜)</p>
 <ul>
 <li>判断pc端和移动端</li>
@@ -164,7 +165,7 @@ fetchJsSdkConfig () {
 
 ```js
 </code></pre>
-<h3 id="方法2">方法2：</h3>
+<h4 id="方法2">方法2：</h4>
 <p>近期我在开发一个新项目的时候，使用方式1出现了不可抗力的bug，大概花了我将近1天的时间排查，然而并没有结果，为了不影响项目进度，我用原生js借助开发文档，自己封装了个，微信内支付函数(复制可用)</p>
 <ul>
 <li>判断pc端和移动端</li>
@@ -211,7 +212,7 @@ function onBridgeReady (params) {
 <pre><code>import * as Helper from '@/helper'
 Helper.jsSDK(wxObj)
 </code></pre>
-<h2 id="微信h5支付-适用移动端浏览器打开并选择微信支付">微信h5支付-适用移动端浏览器打开并选择微信支付</h2>
+<h3 id="微信h5支付-适用移动端浏览器打开并选择微信支付">微信h5支付-适用移动端浏览器打开并选择微信支付</h3>
 <ul>
 <li>判断pc端和移动端</li>
 <li>判断是否是微信环境</li>
@@ -234,7 +235,7 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
           window.location.href = url
           break
 </code></pre>
-<h2 id="微信pc扫码支付-电脑支付">微信PC扫码支付-电脑支付</h2>
+<h3 id="微信pc扫码支付-电脑支付">微信PC扫码支付-电脑支付</h3>
 <ul>
 <li>判断pc端和移动端</li>
 <li>判断支付方式</li>
@@ -253,10 +254,8 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
           }, 2000)
           break
 </code></pre>
-<h2 id="支付宝支付pc移动皆可用">支付宝支付(pc，移动皆可用)</h2>
+<h3 id="支付宝支付pc移动皆可用">支付宝支付(pc，移动皆可用)</h3>
 <p>支付宝支付一般主要工作都是在后端，在vue中使用，这四行代码就够了，后端会直接返回form表单，我们直接提交即可</p>
-<!-- more -->
-<!-- more -->
 <pre><code>   aplipyPay (html) {
       const div = document.createElement('div')
       div.innerHTML = html
