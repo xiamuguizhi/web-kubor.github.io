@@ -1,18 +1,15 @@
-
 <!DOCTYPE html>
 <html>
   <head>
-    
-<meta charset="utf-8" >
+    <meta charset="utf-8" >
 
 <title>团队开发-gitflow工作流 | 王恩博的博客 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640599508">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571640908143">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
@@ -27,92 +24,96 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 
 
   </head>
   <body>
     <div id="app" class="main">
-      <div class="site-header-container">
-  <div class="site-header">
-    <div class="left">
-      <a href="https://wangenbo.cn/">
-        <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1571640599508" alt="" width="32px" height="32px">
-      </a>
-      <a href="https://wangenbo.cn/">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571640908143" class="site-logo">
         <h1 class="site-title">王恩博的博客 | webkubor</h1>
       </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
     </div>
-    <div class="right">
-      <transition name="fade">
-        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
-      </transition>
-    </div>
-  </div>
-</div>
-
-<transition name="fade">
-  <div class="menu-container" style="display: none;" v-show="menuVisible">
-    <div class="menu-list">
+    <div>
       
         
-          <a href="/" class="menu purple-link">
+          <a href="/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="menu purple-link">
+          <a href="/archives" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="menu purple-link">
+          <a href="/tags" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="menu purple-link">
+          <a href="/post/about" class="site-nav">
             关于
           </a>
         
       
     </div>
   </div>
-</transition>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
 
 
-      <div class="content-container">
-        <div class="post-detail">
-          
-            <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-Gho3hoKinW8.jpg')">
-            </div>
-          
-          <h2 class="post-title">团队开发-gitflow工作流</h2>
-          <div class="post-info post-detail-info">
-            <span><i class="icon-calendar-outline"></i> 2019-10-15</span>
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">团队开发-gitflow工作流</h2>
+            <div class="post-date">2019-10-15</div>
             
-              <span>
-                <i class="icon-pricetags-outline"></i>
-                
-                  <a href="https://wangenbo.cn//tag/T896Vxd_i">
-                    git
-                    
-                      ，
-                    
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/k_BUtMNdD">
-                    gitflow
-                    
-                  </a>
-                
-              </span>
+              <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-Gho3hoKinW8.jpg')">
+              </div>
             
-          </div>
-          <div class="post-content">
-            <h2 id="什么是gitflow工作流">什么是gitflow工作流</h2>
+            <div class="post-content">
+              <h2 id="什么是gitflow工作流">什么是gitflow工作流</h2>
 <p>贯穿整个开发周期，master和develop分支是一直存在的，master分支可以被视为稳定的分支， 而develop分支是相对稳定的分支，特性开发会在feature分支上进行，发布会在release分支上 进行，而bug修复则会在hotfix分支上进行。简单讲下：<br>
 我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
 <p>这里就不介绍git的基本操作命令了,这里主要讲远程仓库管理的一些方法</p>
@@ -137,49 +138,50 @@
 <p>如果你没有认识到这个特性很有用，那是因为你的开发工作还没有复杂到一个程度，一个必须要规避代码干扰、保证并行推进的程度。</p>
 <p>对于小型项目和团队来说，基于GIT的中心式协作模型和特性分支模型就足够了；GitFlow模型适合中型、大型项目和团队。</p>
 
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wangenbo.cn//tag/T896Vxd_i" class="tag">
+                    git
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/k_BUtMNdD" class="tag">
+                    gitflow
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
+                  <h3 class="post-title">
+                    多端框架小程序框架评测-mpvue为例
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
           </div>
+
         </div>
-
-        
-          <div class="next-post">
-            <a class="purple-link" href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
-              <h3 class="post-title">
-                下一篇：多端框架小程序框架评测-mpvue为例
-              </h3>
-            </a>
-          </div>
-          
       </div>
-
-      
-        
-          <div id="gitalk-container"></div>
-        
-
-        
-      
-
-      <div class="site-footer">
-  <div class="slogan">不积跬步，无以至千里</div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-  </div>
-  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-</div>
-
-
     </div>
-    <script type="application/javascript">
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
 
 hljs.initHighlightingOnLoad()
 
