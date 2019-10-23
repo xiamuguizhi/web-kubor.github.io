@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>css小技巧总结（一） | 王恩博的博客 | webkubor</title>
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571803781400">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571803781400" class="site-logo">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">css小技巧总结（一）</h2>
+            <div class="post-date">2019-10-23</div>
+            
+              <div class="feature-container" style="background-image: url('https://wangenbo.cn//post-images/CtGNCLIIp.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>由于我2019年重新开发配置了博客，之前的上百篇博客没有转移未免有点可惜，我打算转移一些历史精华博客，以下是我2017年末总结的css小技巧集合</p>
+<!-- more -->
+<h2 id="前言">前言</h2>
+<blockquote>
+<p>吐槽一下，前端工程师很多情况下都在后端工程师前低人一等，其实我的理解吧还是关键看自己，自己的重点在哪儿里，有木有你自己能做而其他人做不了了，比如交互设计很牛，或者vue+node我很熟练，都是工程师（我不大习惯程序猿这个称号）多学点干货，多做点实事比什么都重要！当然了，这也是我经常对自己说的</p>
+</blockquote>
+<h1 id="正文">正文</h1>
+<h3 id="外部框架布局小技巧">外部框架布局小技巧</h3>
+<p>一般外部大框架我们喜欢自己设计不用现成的UI框架，有时很容易出现的问题是框架内部的溢出问题，这会导致页面浏览出现很多问题，我们需要注意不同终端的分辨率不一样，除了媒体查询的设置外，我们要注意设置最小高度和宽度自适应</p>
+<blockquote>
+<p>这里有个小窍门，处理框架溢出的问题，我们可以给所有元素加个边框，这样那里溢出，一目了然</p>
+</blockquote>
+<h4 id="关于非块元素的水平居中">关于非块元素的水平居中</h4>
+<p>一般情况下，我们使一个div在父元素下水平居中显示，我们通常会给他一个宽度，然后margin：0 auto;(当然了兼容性要求不高的话，水平居中可以使用flex布局)， 但是这样的设置有个前提，必须是display：block的情况下才会有效果</p>
+<blockquote>
+<p>当我们改设置为inline-block的情况下，水平居中依旧不会正常实现，对于非块元素的水平居中的办法是给他的父元素添加文本水平居中(text-align:center;)</p>
+</blockquote>
+<h3 id="阻止多次点击框架文本被选中状态">阻止多次点击框架文本被选中状态</h3>
+<pre><code class="language-css">summary {
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+</code></pre>
+<h3 id="内容超出部分隐藏">内容超出部分隐藏</h3>
+<pre><code class="language-css">overflow:auto(没超出不加滚动条，超出部分加滚动条)；
+overflow：hidden(无论如何隐藏滚动条，具体还可以设置横轴隐藏-x，和纵轴隐藏-y)；
+
+visibility:hidden;(隐藏，但依然占据着页面原有空间位置)；
+display:none;(隐藏，不占据空间位置，在页面中彻底消失)；
+</code></pre>
+<h3 id="background属性综合顺序">background属性综合顺序</h3>
+<pre><code class="language-css">background：background-color，background-image，background-repeat，background-attachment，background-position
+</code></pre>
+<blockquote>
+<p>一般用的较多的是处理透明背景background-color:tranparent,还有半透明rgba，渐变等</p>
+</blockquote>
+<h3 id="关于图片绝对定位后依然无法置底问题">关于图片绝对定位后依然无法置底问题</h3>
+<p>在父元素设置了相对定位position:relative后，子元素设置绝对定位置底，但是页面的显示效果依然还会有一点缝隙，这是文本默认占据的空间, 我们的处理方法是回到父元素，给文本添加font-size:0px;就ok了</p>
+<h3 id="关于浮动的理念理解">关于浮动的理念理解</h3>
+<p>文档流一层，漂浮在一层，定位又是一层。所以想要元素在同一水平层，必须设置统一的属性样式</p>
+<h3 id="提供给用户的输入框">提供给用户的输入框</h3>
+<p>我们要注意input是支持单行输入，都用在表单，搜索等地方；但是涉及到评论，动态之类的需要多行文本输入的，换用textarea</p>
+<blockquote>
+<p>使用这个标签有两点一定要注意，一个是value值若是开始不需要设置初始值，value里不要设置任何内容，多个空格都不行，空格会在页面中永远占着一定的位置；另外我们一般不需要textarea自带的右下角装饰效果，设置resize:none;可以样式重置取消</p>
+</blockquote>
+<h3 id="关于弹出模态框的原生开发思路">关于弹出模态框的原生开发思路</h3>
+<p>我说一下大概思维，不复杂。基本思路：弹出一个div,周围的其他事件不可操作，可以固定显示一个窗口</p>
+<ul>
+<li>整体的半透明灰色遮幕层；<br>
+首先颜色上面采用rgba（128，128，128，0.7）；<br>
+宽高百分比设置（不能再框架内）<br>
+绝对定位，默认隐藏；</li>
+<li>具体的内部窗口；<br>
+固定宽高，margin居中，可以适当加入圆角；</li>
+</ul>
+<blockquote>
+<p>我想起来点关于圆角的事，我们一般为了方便border-radius:2%;里面其实填写几像素更好,意思是在边角上画个以多少像素为半径的圆,多出来的尖角部分删除;</p>
+</blockquote>
+<ul>
+<li>外部激活的按钮 （jquery控制显示）；</li>
+</ul>
+<h3 id="角标样式的处理">角标样式的处理</h3>
+<blockquote>
+<p>伪元素基本上我们经常用到比如清除浮动啊，这里我说一下那个发出消息框后指向头像的尖尖角问题</p>
+</blockquote>
+<pre><code class="language-css">//这是指向右的角标
+XXX:after{
+    content：'';
+    width:0；
+    height:0;
+    border:10px solid;
+    border-color:transparent;
+    border-left-color: #ededed;
+    display:block;
+    //自己随便挑挑位置就行
+}
+
+//左角标
+XXX：after{
+    content:'';
+    height:0;
+    width:0;
+    border:10ps solid transparent;
+    border-right-color:#ededed;
+    display:block;
+      //自己随便挑挑位置就行
+}
+
+</code></pre>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wangenbo.cn//tag/dTECJI-wn" class="tag">
+                    原生
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/_TF60-7kZ" class="tag">
+                    技巧
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/UFzDmbs5v" class="tag">
+                    css
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/78roj38sb" class="tag">
+                    总结
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/qX-eXkbF6" class="tag">
+                    王恩博
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
+                  <h3 class="post-title">
+                    基于vue的支付方式总结
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e80f1cb574c2112fb479',
+        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+        repo: 'web-kubor.github.io',
+        owner: 'web-kubor',
+        admin: ['web-kubor'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

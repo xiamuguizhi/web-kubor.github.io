@@ -3,13 +3,13 @@
   <head>
     <meta charset="utf-8" >
 
-<title>多端框架小程序框架评测-mpvue为例 | 王恩博的博客 | webkubor</title>
+<title>关于mpvue的开发指南（暗坑无数） | 王恩博的博客 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571641211921">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571803781400">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1571641211921" class="site-logo">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571803781400" class="site-logo">
         <h1 class="site-title">王恩博的博客 | webkubor</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -106,15 +106,130 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">多端框架小程序框架评测-mpvue为例</h2>
+            <h2 class="post-title">关于mpvue的开发指南（暗坑无数）</h2>
             <div class="post-date">2019-10-15</div>
             
               <div class="feature-container" style="background-image: url('https://webkubor.oss-cn-qingdao.aliyuncs.com/2019-10-15-UcSUe1aFq94.jpg')">
               </div>
             
             <div class="post-content">
-              <!-- more -->
-<p>test</p>
+              <p>我大概是从2018年开始开发小程序，原生开发，wepy开发，mpvue，uni-app开发到后面的云开发，<br>
+weUI,vant UI小程序的的大厂框架基本都上手用过，虽说不上是技术一流，经验老道也算得上了，<br>
+去年双十一写了篇小程序开发总结，到了今年又快双十一了，我。。。还是单身</p>
+<!-- more -->
+<p>首先在开始这篇博客之前，希望大家已经对小程序API有个较为清楚的了解，最好有实际开发经验，同时对于VUE的语法也比较熟悉，那么我相信这篇博客至少在刚开发mpvue中能帮助不少</p>
+<ul>
+<li>
+<h4 id="页面跳转">页面跳转</h4>
+<p>前一篇博客，我也提到了mpvue中支持小程序所有的API，如果大家熟悉小程序api的页面跳转的方法,无非是（wx.navigateTo\wx.redirectTo\switchTab），分别对应跳转非tabBar的页面，没有返回的页面，tabBar的页面。<br>
+淡然既然导航篇特别提出跳转篇，也是考虑到更加熟悉vue语法的童鞋们，在项目搭建完成后，我们还需要安装依赖</p>
+<pre><code>npm i mpvue-router-patch
+</code></pre>
+<p>这是在 mpvue 中使用 vue-router 兼容的路由写法,具体的安装使用方法参见一下网址：<br>
+https://github.com/F-loat/mpvue-router-patch</p>
+<p>我们在小程序只需要做个微调即可</p>
+<pre><code>// 字符串
+router.push('/pages/news/detail')
+
+// 对象
+router.push({ path: '/pages/news/detail' })
+
+// 带查询参数，变成 /pages/news/detail?id=1
+router.push({ path: '/pages/news/detail', query: { id: 1 } })
+
+// 切换至 tabBar 页面
+router.push({ path: '/pages/news/list', isTab: true })
+
+// 重启至某页面，无需指定是否为 tabBar 页面，但 tabBar 页面无法携带参数
+router.push({ path: '/pages/news/list', reLaunch: true })
+</code></pre>
+</li>
+<li>
+<h4 id="获取页面跳转的值">获取页面跳转的值</h4>
+<p>讲完了了页面跳转，自然要讲一下，我们一般页面跳转都是要传值的，那我们如何获取页面跳转的值呢？下面介绍的两种方法都可使用</p>
+<p>1、延用小程序的方式（必须在onload或者onshow周期中使用）</p>
+<pre><code>  onShow (options) {
+
+      let id = options.id
+
+  }
+</code></pre>
+<p>2、使用vue的方式获取页面的原始数据</p>
+<pre><code>  this.$root.$mp.query
+</code></pre>
+</li>
+<li>
+<h4 id="使用vant组件">使用vant组件</h4>
+<p>我在前篇博客中提到了vant UI组件中的导入方法，但是在vant-weapp的官方文档中的具体用法是使用wxml的语法，所以我们不能直接照搬使用：</p>
+<p>1、数据的绑定方式</p>
+<p>原生小程序，在标签内绑定数据的方式</p>
+<pre><code class="language-js">value=&quot;{{value}}&quot;
+</code></pre>
+<p>由于我们使用的事mpvue，所以我们需要改成</p>
+<pre><code class="language-js">v-bind:value=&quot;value&quot;
+//或者
+:value=&quot;value&quot;
+</code></pre>
+<p>2、事件的绑定方式</p>
+<p>原生小程序使用方式</p>
+<pre><code class="language-js">bind:click=&quot;onClick&quot;
+</code></pre>
+<p>mpvue 使用方式</p>
+<pre><code class="language-js">@click=&quot;onClick&quot;
+</code></pre>
+<p>3、交互组件的引用</p>
+<p>vant中像notify这种操作反馈类的组件都有两个引入，一是组件的引入，这个在main.json中引入；另一个是方法的引入，需要在vue文件中import引入，值得注意的是，这里的引入不能使用绝对路径，可以用类似于这样的相对路径。</p>
+<pre><code class="language-js">import Notify from '@/../static/vant/notify/notify' //@是mpvue的一个别名，指向src目录
+</code></pre>
+<p>4、获取 event 事件对象中值</p>
+<p>值得注意的是，mpvue中获取event值与原生小程序有所不同。举例：</p>
+<pre><code class="language-js">onChange(event){ // 获取表单组件filed的值
+console.log(event.mp.detail) // 注意加入mp
+}
+</code></pre>
+<p>5、监听方式的变更<br>
+mpvue 里面无法使用@click-icon这样的监听名,因此如果 API 文档里面有出现这样的监听名，那么需要手动修改源代码。</p>
+<p>可以改成驼峰式的监听名。</p>
+<p>eg: 我在field组件中就遇到这个问题，我的做法是：</p>
+<pre><code class="language-js">// static/vant/field/index.js
+
+this.$emit('click-icon');
+
+// 修改为:
+
+this.$emit('clickIcon');
+</code></pre>
+</li>
+<li>
+<h4 id="从vant-到-vant-weapp的迁移改变">从vant 到 vant-weapp的迁移改变</h4>
+<p>1、v-model</p>
+<p>看多mpvue的童鞋们都知道，在小程序里所有的 BOM／DOM 都不能用，在vue迁移当中v-modal的命令全部需要改成监听时间通过监听输入来绑定value值</p>
+<p>2、v-html<br>
+如果以上问题不是最痛疼的，那么关于富文本解析一定是大家要注意的了，之前小程序中解析富文本我们需要安装插件wxParse来解析，现在我们并不需要这么麻烦，小程序API给出了最佳的解决方案并不需要我们安装其他的多余的插件</p>
+<pre><code class="language-html">&lt;rich-text :nodes=&quot;goods.product_detail_template.header&quot;&gt;&lt;/rich-text&gt;
+</code></pre>
+<p>如此即可在小程序中解析我们嵌有DOM Nodes的段落</p>
+</li>
+<li>
+<h4 id="报错的处理方式">报错的处理方式</h4>
+<p>一般的报错报错都可以通过一下流程处理。</p>
+<p>1、是否打开了微信开发者工具中的ES6转ES5功能。<br>
+2、仔细检查代码和比对文档，看看是否有使用不当的地方。<br>
+3、重新编译npm run dev或删掉dist目录重新npm run dev<br>
+4、重启或更新微信开发者工具。</p>
+<p>在添加UI组件后,报页面丢失，TypeError: Cannot read property 'index' of undefined<br>
+1、新建的页面，没有重新打包<br>
+2、添加的组件路径有问题，路径错误或者是重复添加<br>
+很多使用mpvue的开发者必然也对vue的语法熟悉且很可能已经是vue + vant的技术栈的选择者，为了节省开发的时间来提高效率，需要将项目区做个迁移，在此之前，就要了解vue 转移到 mpvue 应该做出那些改变</p>
+</li>
+</ul>
+<blockquote>
+<p>空口无凭,有下图为证<br>
+<img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87yr3z206j319u0f03zv.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87yrdqv10j319i0r20vd.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87yr6q2esj31310u0ju6.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/006y8mN6ly1g87yreepgnj310w0a00to.jpg" alt=""></p>
+</blockquote>
 
             </div>
             

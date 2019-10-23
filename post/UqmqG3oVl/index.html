@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>JSON反序列化实现一行代码的深克隆  | 王恩博的博客 | webkubor</title>
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571803781400">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571803781400" class="site-logo">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">JSON反序列化实现一行代码的深克隆 </h2>
+            <div class="post-date">2019-10-23</div>
+            
+            <div class="post-content">
+              <p>日常逼逼来了,有个小学弟在朋友圈狂秀jquery写的动态切换,再加上比较简洁,一行就能实现,一时间大家都在说.虽然这在项目中是个寻常的操作,不过对于还在学专业课知识的他们来说已经很不错了,我们是不是也需要更有拓展精神呢?接下来就是传说当中的网红深克隆法的讲解.</p>
+<!-- more -->
+<blockquote>
+<p>我先不说,直接发代码,能看懂的就不用看接下来的讲解内容,反正也不难理解</p>
+</blockquote>
+<pre><code class="language-js">const newObj = JSON.parse(JSON.stringify(oldObj));
+</code></pre>
+<p>讲解慢慢来,我自己也总结一下,现在es6已经在移动端开发用了起来,也有很多现成的工具可以帮助我们将ES5和ES6之前相互相互转化,为了以后大发展,能用es6提供的语法糖就用,干嘛不用呢?</p>
+<ul>
+<li>JavaScript的基础类型现在包括:undefined,null,boolean,number,string,symbol(es6加的,需要知道),引用类型就是object了.</li>
+</ul>
+<p>我们说深克隆,难道有浅克隆吗?为什么说的那么麻烦又晦涩呢?</p>
+<ul>
+<li>有,有浅克隆,而且有比较多的办法实现浅克隆,浅克隆的原理我理解为保存指针,就是我们在C,Java中的那种指针,浅克隆的弊端是在克隆的新对象中,我们的相关操作会影响原来的函数.接下来,我就全贴代码了</li>
+</ul>
+<pre><code class="language-js">  // 面向过程编程
+        function shallowClone(o) {
+            const obj = {};
+            // 使用 for ... in 循环遍历数组----for (变量 in 对象)
+            for (let key in o) {
+                obj[key] = o[key]
+            }
+
+            return obj;
+        }
+
+        // 从简单的形式理解{}里的定义声明方式:
+        const oldObj = {
+            a: 1,
+            b: [2, 3, 'dfdfdf', 96],
+            c: {
+                h: {
+                    i: 2
+                }
+            }
+        }
+
+        const newObj = shallowClone(oldObj);
+        console.log(newObj.c.h, oldObj.c.h);
+        if (newObj.c.h === oldObj.c.h) {
+            console.log('浅克隆成功');
+        }
+        newObj.c.h.i = 'i am changed!'
+        console.log('oldObj.c.h.i=' + oldObj.c.h.i);
+
+
+        // 最快的深度克隆,一行代码
+        console.log('---------------');
+        const JsonObj = JSON.parse(JSON.stringify(oldObj));
+        if (JsonObj.a === oldObj.a) {
+            console.log('克隆成功');
+            JsonObj.a = 'i love you';
+            if (JsonObj.a === oldObj.a) {
+                console.log('深克隆失败')
+            } else {
+                console.log('深克隆成功')
+            }
+        }
+
+</code></pre>
+<blockquote>
+<p>怎么样,是不是特别好用,但是这个方法是有弊端的,我只发现了一个,然后问了一下度娘,这坑还挺多的,往下看就知道了,最好自己试一试:</p>
+</blockquote>
+<pre><code class="language-js">        //构造函数
+        function person(pname) {
+            // console.log(this);
+            this.name = pname;
+        }
+        const Messi = new person('Messi');
+
+        function say() {
+            console.log('you say hi i say hi hi !');
+        }
+        const testObj = {
+            a: say,
+            b: new Array(1),
+            c: new RegExp('ab+c', 'i'),
+            d: Messi
+        };
+
+        const tbObj = JSON.parse(JSON.stringify(testObj));
+        // 无法复制函数
+        console.log(tbObj.a, testObj.a); // undefined [Function: say]
+        // 稀疏数组复制错误
+        console.log(tbObj.b[0], testObj.b[0]); // null undefined
+        // 无法复制正则对象
+        console.log(tbObj.c, testObj.c); // {} /ab+c/i
+        // 构造函数指向错误
+        console.log(tbObj.d.constructor, testObj.d.constructor);
+        // [Function: Object] [Function: person]
+        const oldObj = {};
+        oldObj.a = oldObj;
+        const newObj = JSON.parse(JSON.stringify(oldObj));
+        console.log(newObj.a, oldObj.a); // TypeError: Converting circular structure to JSON
+        // 对象的循环引用会抛出错误.
+
+</code></pre>
+<blockquote>
+<p>哈哈,刺激不刺激,惊喜不惊喜</p>
+</blockquote>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/wol4JdTno">
+                  <h3 class="post-title">
+                    关于storage存储的那点事
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e80f1cb574c2112fb479',
+        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+        repo: 'web-kubor.github.io',
+        owner: 'web-kubor',
+        admin: ['web-kubor'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>css小技巧总结（二） | 王恩博的博客 | webkubor</title>
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571803781400">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571803781400" class="site-logo">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">css小技巧总结（二）</h2>
+            <div class="post-date">2019-10-23</div>
+            
+            <div class="post-content">
+              <p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
+<!-- more -->
+<h2 id="1-一般我们做多页面管理样式表会作为外链表引入项目页面较多时如果不加处理很容易造成样式污染在导入方法上很讲究">1、一般我们做多页面管理，样式表会作为外链表引入，项目页面较多时如果不加处理很容易造成样式污染,在导入方法上很讲究：</h2>
+<p>这样写的css文件中的样式只能在本组件中使用，而不会影响其他组件</p>
+<pre><code>​```css
+&lt;style src=&quot;../../assets/css/home.css&quot; scoped&gt;
+&lt;/style&gt;
+​```
+</code></pre>
+<h2 id="2-一般做电商类帮助信息题材我们需要对文字边缘对齐处理">2、一般做电商类帮助信息题材，我们需要对文字边缘对齐处理</h2>
+<pre><code>​```css
+text-align: justify;
+text-justify: kashida;
+​```
+</code></pre>
+<h2 id="3-通过伪类来模拟选项卡功能">3、通过伪类来模拟选项卡功能</h2>
+<pre><code>​```css
+.cell:hover,
+.cell:active &gt; .detail {
+  display: block;
+}
+​```
+</code></pre>
+<h2 id="4-当某些值相互依赖时应该把它们的相互关系用代码表达出来-从而尽量减少-改动时要编辑的地方在这个例子中行高是字号的-15-倍-因-此把代码改成下面这样会更易维护">4、当某些值相互依赖时，应该把它们的相互关系用代码表达出来。从而尽量减少 改动时要编辑的地方在这个例子中，行高是字号的 1.5 倍。因 此，把代码改成下面这样会更易维护:</h2>
+<pre><code>​```css
+font-size: 20px; line-height: 1.5; 
+​```
+</code></pre>
+<h2 id="5-为了避免在不同的浏览器中表现不同盒子模型的情况产生">5、为了避免在不同的浏览器中表现不同盒子模型的情况产生</h2>
+<pre><code>​```css
+boxing-sizing:content-box\border-box\inherit
+​```
+content-box说得就是w3c标准的盒模型；
+border-box说的是IE怪异盒模型(ie6盒子模型)
+inherit:继承父类的模型形式
+</code></pre>
+<h2 id="6-当我们为了账户保密需要防止自动填充密码在chrome上较为严重chrome会自动记录密码通常我们会在form表单上加入autocompleteoff-或者-在输入框中加入autocompleteoff">6、当我们为了账户保密,需要防止自动填充密码,在chrome上较为严重,chrome会自动记录密码,通常我们会在form表单上加入<code>autocomplete=&quot;off&quot;</code> 或者 在输入框中加入<code>autocomplete=&quot;off&quot;</code></h2>
+<h2 id="7-高斯模糊是ps的一种常见的处理技巧在做移动web或者是h5项目时有的ui会要求我们根据用户的头像做成高斯模糊的头像背景">7、高斯模糊是PS的一种常见的处理技巧，在做移动web，或者是H5项目时，有的UI会要求我们根据用户的头像，做成高斯模糊的头像背景</h2>
+<pre><code>​```css
+-webkit-filter: blur(2px);   /* Chrome, Safari, Opera */
+filter: blur(2px);
+​```
+但是当加上字的时候,文字的可读性不高
+可在文字书写的图层加入伪类模糊处理
+​```css
+body, main::before {
+background: url(&quot;tiger.jpg&quot;) 0 / cover fixed;
+}
+main {
+position: relative;
+background: hsla(0,0%,100%,.3); overflow: hidden;
+}
+main::before { content: '';
+position: absolute;
+top: 0; right: 0; bottom: 0; left: 0; filter: blur(20px);
+margin: -30px;
+}
+​```
+</code></pre>
+<h2 id="8-在项目开发初期也就是还原ui设计图的过程中我们经常碰到到处理很多标签的原始固定的样式虽然可以采用样式覆盖但是需要我们碰到一个改一个开发效率并不高这里推荐采用css3中的一个处理办法效率极高最佳方案">8、在项目开发初期，也就是还原UI设计图的过程中，我们经常碰到到处理很多标签的原始固定的样式，虽然可以采用样式覆盖，但是需要我们碰到一个改一个，开发效率并不高，这里推荐采用css3中的一个处理办法效率极高，最佳方案：</h2>
+<pre><code>​```css
+div{resize:both;overflow:auto;}
+​```
+
+在 CSS3中，resize 属性规定是否可由用户调整元素尺寸,box-sizing 属性允许您以确切的方式定义适应某个区域的具体内容
+</code></pre>
+<h2 id="9-最近开发微信小程序项目中scroll-view标签的使用体验中在安卓机会出现一个默认的主轴滚动条针对框架中的一些默认出现的样式我们一般会采用class父类层级嵌套或者直接import但是实测很多场景下并不管用这里不推荐使用行内标签这是草莽做法最佳解决方法伪类要善用伪类伪类非常好用">9、最近开发微信小程序项目中，scroll-view标签的使用体验中，在安卓机会出现一个默认的主轴滚动条，针对框架中的一些默认出现的样式，我们一般会采用class父类层级嵌套，或者直接import，但是实测很多场景下并不管用，这里不推荐使用行内标签，这是草莽做法，最佳解决方法，伪类，要善用伪类，伪类非常好用</h2>
+<pre><code>​```css
+::-webkit-scrollbar {
+width: 0;
+height: 0;
+color: transparent;
+}
+​```
+
+​```
+button::after{
+border: none;
+}
+​```
+常用的伪类主要是：:link、:visited、:hover、:active，我这有个巧记的方法：L-V-H-A，l(link)ov(visited)e h(hover)a(active)te，即用喜欢和讨厌两个词来概括
+</code></pre>
+<h2 id="9-我们一般开发pc端项目时设计师会花很多功夫在网页logo上那对于我们开发者而言自己做个博客或者demo展示项目的时候如何快速转化一般图片来当做我们的logo呢">9、 我们一般开发PC端项目时，设计师会花很多功夫在网页logo上，那对于我们开发者而言，自己做个博客或者demo展示项目的时候，如何快速转化一般图片来当做我们的logo呢？</h2>
+<pre><code>1. 图标的格式可以必须转化成icon；
+2. 网站设计参考（www.logofree.cn/logo.html）;
+3. 图片转化为logo参考
+4. http://www.bitbug.net/   生成的图标背景是图片的背景，图片如果为透明背景，那么生成的ico图标也是透明的
+
+将生成的ico图标放在自己的项目文件中，然后在header标签中，写下面一句话，例如：
+​```html
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;/自己的ico文件名.ico&quot;/&gt;
+&lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;/&gt;
+​```
+</code></pre>
+<blockquote>
+<p>分享到此结束，如果大家有什么好的建议或者是愿意与我交流前端技术的可以给我email，邮箱地址会在首页右侧显示</p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://wangenbo.cn//tag/dTECJI-wn" class="tag">
+                    原生
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/_TF60-7kZ" class="tag">
+                    技巧
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/UFzDmbs5v" class="tag">
+                    css
+                  </a>
+                
+                  <a href="https://wangenbo.cn//tag/78roj38sb" class="tag">
+                    总结
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/CtGNCLIIp">
+                  <h3 class="post-title">
+                    css小技巧总结（一）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e80f1cb574c2112fb479',
+        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+        repo: 'web-kubor.github.io',
+        owner: 'web-kubor',
+        admin: ['web-kubor'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

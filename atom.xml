@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-10-21T07:00:16.473Z</updated>
+    <updated>2019-10-23T04:09:57.622Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -10,6 +10,93 @@
     <logo>https://wangenbo.cn//images/avatar.png</logo>
     <icon>https://wangenbo.cn//favicon.ico</icon>
     <rights>All rights reserved 2019, 王恩博的博客 | webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[一篇彻底了解node模块化引用]]></title>
+        <id>https://wangenbo.cn//post/DPtcZppAf</id>
+        <link href="https://wangenbo.cn//post/DPtcZppAf">
+        </link>
+        <updated>2019-10-23T04:08:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>node有个很重要的概念，模块系统</p>
+<ul>
+<li>模块作用域</li>
+<li>使用require来加载模块</li>
+<li>使用exports接口对象来导出</li>
+</ul>
+]]></summary>
+        <content type="html"><![CDATA[<p>node有个很重要的概念，模块系统</p>
+<ul>
+<li>模块作用域</li>
+<li>使用require来加载模块</li>
+<li>使用exports接口对象来导出</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[遍历？迭代？]]></title>
+        <id>https://wangenbo.cn//post/drxij9fP0</id>
+        <link href="https://wangenbo.cn//post/drxij9fP0">
+        </link>
+        <updated>2019-10-23T04:05:14.000Z</updated>
+        <summary type="html"><![CDATA[<p>遍历？ 迭代 ？ 循环？递归 ？是一回事吗</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>遍历？ 迭代 ？ 循环？递归 ？是一回事吗</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[JSON反序列化实现一行代码的深克隆 ]]></title>
+        <id>https://wangenbo.cn//post/UqmqG3oVl</id>
+        <link href="https://wangenbo.cn//post/UqmqG3oVl">
+        </link>
+        <updated>2019-10-23T03:49:01.000Z</updated>
+        <summary type="html"><![CDATA[<p>日常逼逼来了,有个小学弟在朋友圈狂秀jquery写的动态切换,再加上比较简洁,一行就能实现,一时间大家都在说.虽然这在项目中是个寻常的操作,不过对于还在学专业课知识的他们来说已经很不错了,我们是不是也需要更有拓展精神呢?接下来就是传说当中的网红深克隆法的讲解.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>日常逼逼来了,有个小学弟在朋友圈狂秀jquery写的动态切换,再加上比较简洁,一行就能实现,一时间大家都在说.虽然这在项目中是个寻常的操作,不过对于还在学专业课知识的他们来说已经很不错了,我们是不是也需要更有拓展精神呢?接下来就是传说当中的网红深克隆法的讲解.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[关于storage存储的那点事]]></title>
+        <id>https://wangenbo.cn//post/wol4JdTno</id>
+        <link href="https://wangenbo.cn//post/wol4JdTno">
+        </link>
+        <updated>2019-10-23T03:37:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>在目前的大多互联网公司,有一道笔试题几乎的十之八九必考的,当前的浏览器端的存储技术有哪些?,这次就浏览器中的本地存储,我谈谈我的认识和理解.</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>在目前的大多互联网公司,有一道笔试题几乎的十之八九必考的,当前的浏览器端的存储技术有哪些?,这次就浏览器中的本地存储,我谈谈我的认识和理解.</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[依赖管理工具]]></title>
+        <id>https://wangenbo.cn//post/W_gXiVc_0</id>
+        <link href="https://wangenbo.cn//post/W_gXiVc_0">
+        </link>
+        <updated>2019-10-23T03:31:58.000Z</updated>
+        <summary type="html"><![CDATA[<p>其实本无差距，不管是用npm还是yarn都是为了提高工作效率，使用哪一种看个人喜好了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>其实本无差距，不管是用npm还是yarn都是为了提高工作效率，使用哪一种看个人喜好了。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[css小技巧总结（二）]]></title>
+        <id>https://wangenbo.cn//post/3CLAlLNwe</id>
+        <link href="https://wangenbo.cn//post/3CLAlLNwe">
+        </link>
+        <updated>2019-10-23T03:24:34.000Z</updated>
+        <summary type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[css小技巧总结（一）]]></title>
+        <id>https://wangenbo.cn//post/CtGNCLIIp</id>
+        <link href="https://wangenbo.cn//post/CtGNCLIIp">
+        </link>
+        <updated>2019-10-23T02:46:31.000Z</updated>
+        <summary type="html"><![CDATA[<p>由于我2019年重新开发配置了博客，之前的上百篇博客没有转移未免有点可惜，我打算转移一些历史精华博客，以下是我2017年末总结的css小技巧集合</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>由于我2019年重新开发配置了博客，之前的上百篇博客没有转移未免有点可惜，我打算转移一些历史精华博客，以下是我2017年末总结的css小技巧集合</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[基于vue的支付方式总结]]></title>
         <id>https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie</id>
@@ -33,21 +120,18 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[多端框架小程序框架评测-mpvue为例]]></title>
+        <title type="html"><![CDATA[关于mpvue的开发指南（暗坑无数）]]></title>
         <id>https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan</id>
         <link href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
         </link>
         <updated>2019-10-15T06:31:55.000Z</updated>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2019- Plan]]></title>
-        <id>https://wangenbo.cn//post/hello</id>
-        <link href="https://wangenbo.cn//post/hello">
-        </link>
-        <updated>2019-01-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏我想用它来记录我的生活、心情、知识、笔记、创意... ...</p>
+        <summary type="html"><![CDATA[<p>我大概是从2018年开始开发小程序，原生开发，wepy开发，mpvue，uni-app开发到后面的云开发，<br>
+weUI,vant UI小程序的的大厂框架基本都上手用过，虽说不上是技术一流，经验老道也算得上了，<br>
+去年双十一写了篇小程序开发总结，到了今年又快双十一了，我。。。还是单身</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>👏我想用它来记录我的生活、心情、知识、笔记、创意... ...</p>
+        <content type="html"><![CDATA[<p>我大概是从2018年开始开发小程序，原生开发，wepy开发，mpvue，uni-app开发到后面的云开发，<br>
+weUI,vant UI小程序的的大厂框架基本都上手用过，虽说不上是技术一流，经验老道也算得上了，<br>
+去年双十一写了篇小程序开发总结，到了今年又快双十一了，我。。。还是单身</p>
 ]]></content>
     </entry>
 </feed>
