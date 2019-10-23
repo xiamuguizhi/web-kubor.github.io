@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571805179169">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571805360868">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
@@ -36,7 +36,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1571805179169" class="site-logo">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571805360868" class="site-logo">
         <h1 class="site-title">王恩博的博客 | webkubor</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -207,6 +207,21 @@ border: none;
 &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot;/&gt;
 ​```
 </code></pre>
+<h2 id="10-不知道大家平时做项目的时候有木有关注这个问题其实之前做项目遇到过类似的问题但是因为是单独的chrome浏览器的填充而且是样式问题稍微严重点也就没在意-然而在近期的项目中有遇到了这个问题最为一个新的网站第一次登陆或是注册就被填充这个问题细思极恐">10、不知道大家平时做项目的时候有木有关注这个问题，其实之前做项目遇到过类似的问题，但是因为是单独的chrome浏览器的填充，而且是样式问题稍微严重点，也就没在意。然而在近期的项目中有遇到了这个问题，最为一个新的网站，第一次登陆或是注册就被填充，这个问题，细思极恐.</h2>
+<p>在大多数的浏览器中通常我们会在form表单上加入autocomplete=&quot;off&quot; 或者 在输入框中加入autocomplete=&quot;off&quot;但以上h5新加的方法并不好用,或者说chrome还部证明支持,不过提供了一个新思维,用这个方法能实现,可以加在任意一个你不想被填充的input标签内</p>
+<pre><code class="language-css">autocomplete=&quot;new-password&quot;
+</code></pre>
+<p>这个方法也许还有兼容性的问题,因为这个autocomplete的方法是h5新加的,所以为了效果还需加上私有属性的相关设置</p>
+<pre><code class="language-css">    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+    box-shadow:0 0 0 60px #eee inset;
+    -webkit-text-fill-color: #878787;
+ }
+</code></pre>
+<blockquote>
+<p>强迫症们,快来感激我!</p>
+</blockquote>
 <blockquote>
 <p>分享到此结束，如果大家有什么好的建议或者是愿意与我交流前端技术的可以给我email，邮箱地址会在首页右侧显示</p>
 </blockquote>
