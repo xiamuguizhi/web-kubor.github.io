@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-10-23T04:09:57.622Z</updated>
+    <updated>2019-10-23T04:17:22.858Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -10,6 +10,24 @@
     <logo>https://wangenbo.cn//images/avatar.png</logo>
     <icon>https://wangenbo.cn//favicon.ico</icon>
     <rights>All rights reserved 2019, 王恩博的博客 | webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[UI框架的定制化（vant-weapp为例）]]></title>
+        <id>https://wangenbo.cn//post/iLZTgUYSC</id>
+        <link href="https://wangenbo.cn//post/iLZTgUYSC">
+        </link>
+        <updated>2019-10-23T04:14:07.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[weapp原生开发-逆地理解析坐标定位]]></title>
+        <id>https://wangenbo.cn//post/6cwx2JoDu</id>
+        <link href="https://wangenbo.cn//post/6cwx2JoDu">
+        </link>
+        <updated>2019-10-23T04:11:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>话不多说，直接上手开发</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>话不多说，直接上手开发</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[一篇彻底了解node模块化引用]]></title>
         <id>https://wangenbo.cn//post/DPtcZppAf</id>
@@ -106,32 +124,6 @@
         <summary type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[团队开发-gitflow工作流]]></title>
-        <id>https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu</id>
-        <link href="https://wangenbo.cn//post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
-        </link>
-        <updated>2019-10-15T06:48:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我们通常在工作中都会用git或者svn来管理我们的代码,那么如何高效的存储,管理我们的远程仓库,在团队开发中提高效率就显得非常重要</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[关于mpvue的开发指南（暗坑无数）]]></title>
-        <id>https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan</id>
-        <link href="https://wangenbo.cn//post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
-        </link>
-        <updated>2019-10-15T06:31:55.000Z</updated>
-        <summary type="html"><![CDATA[<p>我大概是从2018年开始开发小程序，原生开发，wepy开发，mpvue，uni-app开发到后面的云开发，<br>
-weUI,vant UI小程序的的大厂框架基本都上手用过，虽说不上是技术一流，经验老道也算得上了，<br>
-去年双十一写了篇小程序开发总结，到了今年又快双十一了，我。。。还是单身</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我大概是从2018年开始开发小程序，原生开发，wepy开发，mpvue，uni-app开发到后面的云开发，<br>
-weUI,vant UI小程序的的大厂框架基本都上手用过，虽说不上是技术一流，经验老道也算得上了，<br>
-去年双十一写了篇小程序开发总结，到了今年又快双十一了，我。。。还是单身</p>
 ]]></content>
     </entry>
 </feed>

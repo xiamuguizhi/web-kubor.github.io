@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>weapp原生开发-逆地理解析坐标定位 | 王恩博的博客 | webkubor</title>
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571804237780">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571804237780" class="site-logo">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">weapp原生开发-逆地理解析坐标定位</h2>
+            <div class="post-date">2019-10-23</div>
+            
+            <div class="post-content">
+              <p>话不多说，直接上手开发</p>
+<!-- more -->
+<h4 id="拿到经纬度">拿到经纬度</h4>
+<p>微信小程序中提供了三个小程序获取定位的方式</p>
+<pre><code>wx.chooseLocation // 打开地图查看位置
+wx.getLocation // 获取当前的位置
+wx.openLocation // 试用地图查看当前位置
+</code></pre>
+<p>如果只是做定位的话,推荐用第二种wx.getLocation,在成功回调中只能拿到经纬度</p>
+<h4 id="逆地理解析">逆地理解析</h4>
+<p>我们还需要做逆地理解析,这里试用腾讯地图做展示</p>
+<pre><code>https://lbs.qq.com/console/mykey.html
+</code></pre>
+<p>增加key的配置,我们主要试用的是webServive的功能</p>
+<h5 id="key的设置信息">key的设置信息:</h5>
+<figure data-type="image" tabindex="1"><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fy9p8zuaryj30zt0u0djv.jpg" alt="屏幕快照 2018-12-17 下午1.54.27"></figure>
+<p>注意白名单里面的域名一定要填写</p>
+<h5 id="webservice配置">webService配置</h5>
+<p>https://lbs.qq.com/webservice_v1/guide-gcoder.html</p>
+<p>请求URL:</p>
+<pre><code class="language-js">https://apis.map.qq.com/ws/geocoder/v1
+</code></pre>
+<h5 id="请求参数">请求参数</h5>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>必填</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>location</td>
+<td>是</td>
+<td>位置坐标，格式： location=lat&lt;纬度&gt;,lng&lt;经度&gt;</td>
+<td>location= 39.984154,116.307490</td>
+</tr>
+<tr>
+<td>get_poi</td>
+<td>否</td>
+<td>是否返回周边POI列表： 1.返回；0不返回(默认)</td>
+<td>get_poi=1</td>
+</tr>
+<tr>
+<td>poi_options</td>
+<td>否</td>
+<td>用于控制POI列表：            1 poi_options=address_format=short            返回短地址，缺省时返回长地址            2 poi_options=radius=5000            半径，取值范围 1-5000（米）            3 poi_options=page_size=20            每页条数，取值范围 1-20            4 poi_options=page_index=1            页码，取值范围 1-20  		  注：分页时page_size与page_index参数需要同时使用            5 poi_options=policy=1/2/3/4/5            控制返回场景，            policy=1[默认] 以地标+主要的路+近距离POI为主，着力描述当前位置；            policy=2 到家场景：筛选合适收货的POI，并会细化收货地址，精确到楼栋；            policy=3 出行场景：过滤掉车辆不易到达的POI(如一些景区内POI)，增加道路出入口、交叉口、大区域出入口类POI，排序会根据真实API大用户的用户点击自动优化。            policy=4 社交签到场景，针对用户签到的热门地点进行优先排序。              policy=5 位置共享场景，用户经常用于发送位置、位置分享等场景的热门地点优先排序             6 poi_options=category=分类词1,分类词2，             指定分类，多关键词英文逗号分隔；            （支持类别参见：附录）</td>
+<td>【单个参数写法示例】：            poi_options=address_format=short              【多个参数英文分号间隔，写法示例】：            poi_options=address_format=short;radius=5000;  page_size=20;page_index=1;policy=2</td>
+</tr>
+<tr>
+<td>key</td>
+<td>是</td>
+<td>开发密钥（Key）</td>
+<td>key=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77</td>
+</tr>
+<tr>
+<td>output</td>
+<td>否</td>
+<td>返回格式：支持JSON/JSONP，默认JSON</td>
+<td>output=json</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>否</td>
+<td>JSONP方式回调函数</td>
+<td>callback=function1</td>
+</tr>
+</tbody>
+</table>
+<p>最后献上完成的函数功能</p>
+<pre><code class="language-js">fetchLocation () {
+      wx.getLocation({
+        type: 'wgs84',
+        altitude: false,
+        success: res =&gt; {
+          var locationString = res.latitude + ',' + res.longitude
+          wx.request({
+            url: 'https://apis.map.qq.com/ws/geocoder/v1',
+            method: 'GET',
+            data: {
+              'key': 'Y7WBZ-GEZ3X-V634Z-ZR5HB-ZTY4F-YBFGA',
+              'location': locationString,
+              'get_poi': 1
+            },
+            header: 'application/x-www-form-urlencoded',
+            success: (res) =&gt; {
+              console.log('您当前在' + res.data.result.address)
+            },
+            fail: () =&gt; {
+              console.log('获取地址失败')
+            }
+          })
+        }
+      })
+    }
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/DPtcZppAf">
+                  <h3 class="post-title">
+                    一篇彻底了解node模块化引用
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e80f1cb574c2112fb479',
+        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+        repo: 'web-kubor.github.io',
+        owner: 'web-kubor',
+        admin: ['web-kubor'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>

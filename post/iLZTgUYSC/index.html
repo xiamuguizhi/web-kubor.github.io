@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于storage存储的那点事 | 王恩博的博客 | webkubor</title>
+<title>UI框架的定制化（vant-weapp为例） | 王恩博的博客 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -106,66 +106,45 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">关于storage存储的那点事</h2>
+            <h2 class="post-title">UI框架的定制化（vant-weapp为例）</h2>
             <div class="post-date">2019-10-23</div>
             
-              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880hejpqyj319t0u07wh.jpg')">
+              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880gh5x2ij31900u00yv.jpg')">
               </div>
             
             <div class="post-content">
-              <p>在目前的大多互联网公司,有一道笔试题几乎的十之八九必考的,当前的浏览器端的存储技术有哪些?,这次就浏览器中的本地存储,我谈谈我的认识和理解.</p>
-<!-- more -->
-<ul>
-<li>localStorage:存储在本地,不会伴随数据的传输而传送,生命周期为永久;</li>
-<li>sessionStorage:用户本地存储会话中的数据,这些数据只有在同一个会话中的页面才能访问并且当会话结束后数据也随之销毁</li>
-<li>globalstorage:火狐中用于浏览器存储</li>
-<li>userdata:IE中用于浏览器存储技术</li>
-<li>Cookies:每个特定的域名下最多生成的cookie个数有限制,最多生成20个cookie(IE和Opera 会清理近期最少使用的cookie，Firefox会随机清理cookie),存在安全性问题,如果cookie被人拦截了，那人就可以取得所有的session信息</li>
-</ul>
-<hr>
-<p>个人觉得,怎么回答已经很全了,其实我们业务中经常用到的还是H5中Web Storage的两种方式:<br>
-sessionStorage和localStorage</p>
-<h5 id="sessionstorage">sessionStorage</h5>
-<pre><code>// 可以将我们选择的每条数据进行存储
-sessionStorage.setItems(k,v) 
-// 得到session中的数据
-sessionStorage.getItem(key)
-// 移除session
-sessionStorage.removeItem(k)
-// 手动清除所有的session
-sessionStorage.clear()
+              <p>使用UI框架难免会遇到样式覆盖的问题，覆盖原来的样式做到还原定制化的UI界面，我们必须掌握一个可以复制或者是可以工程化的样式覆盖方式</p>
+<p>我们打开vant的组件实例：</p>
+<p>https://youzan.github.io/vant-weapp/#/col</p>
+<figure data-type="image" tabindex="1"><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fxj5wk3f7cj316w0u0tdt.jpg" alt="image-20181124150037529"></figure>
+<p>可以看到像vant-weapp的中的custom-class的类，外部样式类根据其定义内容，大概就是用作覆盖做定制化样式的用途，那我们来测试一下，现在有个需求，我需要在vant-weapp的基础上做个圆角搜索框</p>
+<pre><code class="language-html">&lt;van-search custom-class=&quot;mk-van-search&quot; background=&quot;#E4668D&quot; :value=&quot;keywords&quot; placeholder=&quot;年抛 金粉 活动&quot; v-model=&quot;key&quot; use-action-slot @search=&quot;onSearch&quot;&gt;&lt;/van-search&gt;
 
 </code></pre>
-<h5 id="localstorage">localStorage</h5>
-<pre><code>* 保存数据：localStorage.setItem(key,value);
-* 读取数据：localStorage.getItem(key);
-* 删除单个数据：localStorage.removeItem(key);
-* 删除所有数据：localStorage.clear();
-* 得到某个索引的key：localStorage.key(index);
+<p>我在app.vue中设置了全局样式</p>
+<pre><code class="language-css">.mk-van-search {
+    border-radius: 28rpx;
+  }
 </code></pre>
-<p>关于storeage的应用不仅仅局限于web,小程序中storage也饮用面很广,几乎所有的小程序在开发中都用到localStorage,用于保存用户登录和相关授权信息,关于使用方法,如下所示:<br>
-<img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fufad7i1a1j31kw1rzqhr.jpg" alt="image"></p>
+<p>如果这有曾经为此困扰过的开发者，应该明白这样设置并没有效果，但是问题出在哪里，我们又改如何设置呢？</p>
+<p>我变向boss请教，原来boss也踩过坑，之所以叫做根节点样式类，将样式设置在根节点自然是没用的，更节点样式类，作用的类应该在子项上，也就是说有一个具体实施的类，我改变了设定方法</p>
+<pre><code class="language-css">.mk-van-search {
+    .van-cell{
+      border-radius: 28rpx;
+    }
+  }
+</code></pre>
+<p>这里就只是加了 一个DOM子节点，也就是其显示的最小单位，但是有效！有效！</p>
+<p>想不到问题就是这样，没踩过坑，都不知道有这么简单的实现办法</p>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn//tag/78roj38sb" class="tag">
-                    总结
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/Qg2NNW6TK" class="tag">
-                    微信小程序
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn//post/W_gXiVc_0">
+                <a href="https://wangenbo.cn//post/6cwx2JoDu">
                   <h3 class="post-title">
-                    依赖管理工具
+                    weapp原生开发-逆地理解析坐标定位
                   </h3>
                 </a>
               </div>
