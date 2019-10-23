@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-10-23T04:21:31.380Z</updated>
+    <updated>2019-10-23T04:33:12.350Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://wangenbo.cn//images/avatar.png</logo>
     <icon>https://wangenbo.cn//favicon.ico</icon>
     <rights>All rights reserved 2019, 王恩博的博客 | webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[JavaScript的DOM的接口回顾]]></title>
+        <id>https://wangenbo.cn//post/IZm_9cOeI</id>
+        <link href="https://wangenbo.cn//post/IZm_9cOeI">
+        </link>
+        <updated>2019-10-23T04:29:22.000Z</updated>
+        <summary type="html"><![CDATA[<p>原生JS是前端的立身之本也不为过，无论后期转node， TS还是使用框架，都跳不过这个坎，必要时候，我们还是要巩固学习深化javascript</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>原生JS是前端的立身之本也不为过，无论后期转node， TS还是使用框架，都跳不过这个坎，必要时候，我们还是要巩固学习深化javascript</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[正则表达式]]></title>
+        <id>https://wangenbo.cn//post/MB8dzS--A</id>
+        <link href="https://wangenbo.cn//post/MB8dzS--A">
+        </link>
+        <updated>2019-10-23T04:23:34.000Z</updated>
+        <summary type="html"><![CDATA[<p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[UI框架的定制化（vant-weapp为例）]]></title>
         <id>https://wangenbo.cn//post/iLZTgUYSC</id>
@@ -106,28 +128,6 @@
         <summary type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[css小技巧总结（一）]]></title>
-        <id>https://wangenbo.cn//post/CtGNCLIIp</id>
-        <link href="https://wangenbo.cn//post/CtGNCLIIp">
-        </link>
-        <updated>2019-10-23T02:46:31.000Z</updated>
-        <summary type="html"><![CDATA[<p>由于我2019年重新开发配置了博客，之前的上百篇博客没有转移未免有点可惜，我打算转移一些历史精华博客，以下是我2017年末总结的css小技巧集合</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>由于我2019年重新开发配置了博客，之前的上百篇博客没有转移未免有点可惜，我打算转移一些历史精华博客，以下是我2017年末总结的css小技巧集合</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[基于vue的支付方式总结]]></title>
-        <id>https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie</id>
-        <link href="https://wangenbo.cn//post/zhi-fu-fang-shi-zong-jie">
-        </link>
-        <updated>2019-10-21T05:26:52.000Z</updated>
-        <summary type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
 ]]></content>
     </entry>
 </feed>

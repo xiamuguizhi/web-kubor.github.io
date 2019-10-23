@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>正则表达式 | 王恩博的博客 | webkubor</title>
+<meta name="description" content="不积跬步，无以至千里">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1571805179169">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
+
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
+  
+
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://wangenbo.cn/">
+        <img src="https://wangenbo.cn//images/avatar.png?v=1571805179169" class="site-logo">
+        <h1 class="site-title">王恩博的博客 | webkubor</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
+            <i class="fab fa-weibo"></i>
+          </a>
+        
+      
+        
+          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
+            <i class="fab fa-zhihu"></i>
+          </a>
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      不积跬步，无以至千里
+    </div>
+    <div class="site-footer">
+      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">正则表达式</h2>
+            <div class="post-date">2019-10-23</div>
+            
+              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880rwzqwej31940u0h6q.jpg')">
+              </div>
+            
+            <div class="post-content">
+              <p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
+<!-- more -->
+<h2 id="正则大法">正则大法</h2>
+<blockquote>
+<p>我发现正则有个很有意思的,大小写代表的规则互斥,详情  请看下文</p>
+</blockquote>
+<p>匹配任意字符<br>
+当一个点时匹配所有字符,<br>
+当两个点以上还代表一个位置</p>
+<pre><code>/./g
+</code></pre>
+<p>匹配字母和数字</p>
+<pre><code>/\w/g
+</code></pre>
+<p>匹配非字母和数字</p>
+<pre><code>/\W/g
+</code></pre>
+<hr>
+<p>只匹配数字</p>
+<pre><code>/\d/g
+</code></pre>
+<p>匹配所有不是数字的</p>
+<pre><code>/\D/g
+</code></pre>
+<hr>
+<p>匹配空格</p>
+<pre><code>/\s/g
+</code></pre>
+<p>匹配字符集合,(中括号内的代表针对字符的匹配规则)</p>
+<pre><code>/[a-z]/g
+</code></pre>
+<p>汉字</p>
+<pre><code>/[\u4e00-\u9fa5]/g
+</code></pre>
+<p>+代表可重复一次或者多次,*代表可重复一次或者多次</p>
+<pre><code>/yo{0,8}/g
+</code></pre>
+<blockquote>
+<p>”^”这个字符在中括号”[]”中有两个涵义<br>
+中括号内使用的话就表示字符类的否定，<br>
+如果不是的话就是表示限定开头<br>
+$一般跟在规则的最后面,代表限定结束按说明规则</p>
+</blockquote>
+<h4 id="最后配送常用的正则表达式以供参考">最后配送常用的正则表达式以供参考</h4>
+<pre><code class="language-js">//正整数
+/^[0-9]*[1-9][0-9]*$/;
+//负整数
+/^-[0-9]*[1-9][0-9]*$/;
+//正浮点数
+/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/;
+//负浮点数
+/^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$/;
+//浮点数
+/^(-?\d+)(\.\d+)?$/;
+//email地址
+/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/;
+//url地址
+/^[a-zA-z]+://(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\S*)?$/;
+//年/月/日（年-月-日、年.月.日）
+/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/;
+//匹配中文字符
+/[\u4e00-\u9fa5]/;
+//匹配帐号是否合法(字母开头，允许5-10字节，允许字母数字下划线)
+/^[a-zA-Z][a-zA-Z0-9_]{4,9}$/;
+//匹配空白行的正则表达式
+/\n\s*\r/;
+//匹配中国邮政编码
+/[1-9]\d{5}(?!\d)/;
+//匹配身份证
+/\d{15}|\d{18}/;
+//匹配国内电话号码
+/(\d{3}-|\d{4}-)?(\d{8}|\d{7})?/;
+//匹配IP地址
+/((2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)/;
+//匹配首尾空白字符的正则表达式
+/^\s*|\s*$/;
+//匹配HTML标记的正则表达式
+(\S*?)[^&gt;]*&gt;.*?|&lt; .*?/
+
+</code></pre>
+<p>哈哈哈,看到这里,我要发送最后一个福利彩蛋<br>
+如何用正则匹配判断是一个完整的url呢?</p>
+<pre><code class="language-js">function IsURL(strUrl) {
+  var regular = /^\b(((https?|ftp):\/\/)?[-a-z0-9]+(\.[-a-z0-9]+)*\.(?:com|edu|gov|int|mil|net|org|biz|info|name|museum|asia|coop|aero|[a-z][a-z]|((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]\d)|\d))\b(\/[-a-z0-9_:\@&amp;?=+,.!\/~%\$]*)?)$/i
+  if (regular.test(strUrl)) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+</code></pre>
+<h2 id="业务中的使用场景">业务中的使用场景</h2>
+<h3 id="过滤">过滤</h3>
+<h4 id="在我们的一般业务中都会遇到需要过滤的字符串通常的处理方式是使用replace来配合正则返回我们需要的字符串">在我们的一般业务中都会遇到需要过滤的字符串，通常的处理方式是使用replace，来配合正则返回我们需要的字符串</h4>
+<p>如下所示：过滤掉所有html标签</p>
+<pre><code>this.formContent.replace(/&lt;[^&gt;]+&gt;/g, '')
+</code></pre>
+<blockquote>
+<p>最后可以使用test来判断字符串 RegExpObject.test(string)，返回值是boolean</p>
+</blockquote>
+<h3 id="替换">替换</h3>
+<pre><code>stringObject.replace(regexp/substr,replacement)
+</code></pre>
+<h3 id="说明">说明：</h3>
+<p>字符串 stringObject 的 replace() 方法执行的是查找并替换的操作。它将在 stringObject 中查找与 regexp 相匹配的子字符串，然后用 replacement 来替换这些子串。如果 regexp 具有全局标志 g，那么 replace() 方法将替换所有匹配的子串。否则，它只替换第一个匹配子串。</p>
+<h3 id="拓展">拓展：</h3>
+<p>如果regexp是外部引用的方式，是无法将变量名写进去起效果的，解决效果是使用newRegExp的方式</p>
+<pre><code>string.replace(new RegExp(key,'g'),&quot;b&quot;);
+</code></pre>
+<h3 id="换位">换位</h3>
+<pre><code>var name= &quot;Doe, John&quot;; 
+name.replace(/(\w+)\s*,\s*(\w+)/, &quot;$2 $1&quot;); 
+</code></pre>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://wangenbo.cn//post/iLZTgUYSC">
+                  <h3 class="post-title">
+                    UI框架的定制化（vant-weapp为例）
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+              
+                <div id="gitalk-container" data-aos="fade-in"></div>
+              
+
+              
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+
+      var gitalk = new Gitalk({
+        clientID: 'e80f1cb574c2112fb479',
+        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+        repo: 'web-kubor.github.io',
+        owner: 'web-kubor',
+        admin: ['web-kubor'],
+        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      })
+
+      gitalk.render('gitalk-container')
+
+    </script>
+  
+
+  
+
+
+
+
+  </body>
+</html>
