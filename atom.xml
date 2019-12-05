@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>王恩博的博客 | webkubor</title>
-    <updated>2019-11-28T05:48:17.272Z</updated>
+    <updated>2019-12-05T02:47:46.998Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -10,6 +10,17 @@
     <logo>https://wangenbo.cn//images/avatar.png</logo>
     <icon>https://wangenbo.cn//favicon.ico</icon>
     <rights>All rights reserved 2019, 王恩博的博客 | webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[自动化？爬虫？性能测试？puppeteer都能做到]]></title>
+        <id>https://wangenbo.cn//post/nr1IMv43q</id>
+        <link href="https://wangenbo.cn//post/nr1IMv43q">
+        </link>
+        <updated>2019-11-29T09:59:49.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天日常技术群讨论到Chrome的无头浏览器puppeteer，站主在掘金上简单的搜了一下，爬虫、性能测试，自动化，居然都可以做，简单的跟着官网api走了一遍，发现了一些骚操作，尤其是自动渲染目标网站长图，PDF导出</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天日常技术群讨论到Chrome的无头浏览器puppeteer，站主在掘金上简单的搜了一下，爬虫、性能测试，自动化，居然都可以做，简单的跟着官网api走了一遍，发现了一些骚操作，尤其是自动渲染目标网站长图，PDF导出</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[JavaScript的DOM的接口回顾]]></title>
         <id>https://wangenbo.cn//post/IZm_9cOeI</id>
@@ -119,17 +130,6 @@
         <summary type="html"><![CDATA[<p>其实本无差距，不管是用npm还是yarn都是为了提高工作效率，使用哪一种看个人喜好了。</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>其实本无差距，不管是用npm还是yarn都是为了提高工作效率，使用哪一种看个人喜好了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[css小技巧总结（二）]]></title>
-        <id>https://wangenbo.cn//post/3CLAlLNwe</id>
-        <link href="https://wangenbo.cn//post/3CLAlLNwe">
-        </link>
-        <updated>2019-10-23T03:24:34.000Z</updated>
-        <summary type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
 ]]></content>
     </entry>
 </feed>
