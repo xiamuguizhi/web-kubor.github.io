@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>webkubor</title>
-    <updated>2019-12-24T06:02:52.357Z</updated>
+    <updated>2019-12-24T06:11:20.715Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn//atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://wangenbo.cn//images/avatar.png</logo>
     <icon>https://wangenbo.cn//favicon.ico</icon>
     <rights>All rights reserved 2019, webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[团队开发-必掌握点-git项目托管]]></title>
+        <id>https://wangenbo.cn//post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan</id>
+        <link href="https://wangenbo.cn//post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
+        </link>
+        <updated>2019-12-24T06:04:23.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[vue的bug？触发vue数据响应解决方案]]></title>
         <id>https://wangenbo.cn//post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an</id>
@@ -97,27 +104,6 @@
         <summary type="html"><![CDATA[<p>话不多说，直接上手开发</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>话不多说，直接上手开发</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[一篇彻底了解node模块化引用]]></title>
-        <id>https://wangenbo.cn//post/DPtcZppAf</id>
-        <link href="https://wangenbo.cn//post/DPtcZppAf">
-        </link>
-        <updated>2019-10-23T04:08:49.000Z</updated>
-        <summary type="html"><![CDATA[<p>node有个很重要的概念，模块系统</p>
-<ul>
-<li>模块作用域</li>
-<li>使用require来加载模块</li>
-<li>使用exports接口对象来导出</li>
-</ul>
-]]></summary>
-        <content type="html"><![CDATA[<p>node有个很重要的概念，模块系统</p>
-<ul>
-<li>模块作用域</li>
-<li>使用require来加载模块</li>
-<li>使用exports接口对象来导出</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
