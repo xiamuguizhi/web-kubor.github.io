@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JavaScript的DOM的接口回顾 | webkubor</title>
+<title>业务中关于数组的常用场景方法总结 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -116,60 +116,129 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JavaScript的DOM的接口回顾</h2>
-            <div class="post-date">2019-10-23</div>
+            <h2 class="post-title">业务中关于数组的常用场景方法总结</h2>
+            <div class="post-date">2019-12-24</div>
             
-              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880veytg6j31gs0o6t9s.jpg')">
+              <div class="feature-container" style="background-image: url('https://wangenbo.cn//post-images/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie.jpg')">
               </div>
             
             <div class="post-content">
-              <p>从业务中成长,从代码中感悟。<br>
-原生JS是前端的立身之本也不为过，无论后期转node， TS还是使用框架，都跳不过这个坎，必要时候，我们还是要巩固学习深化javascript</p>
-<!-- more -->
-<h2 id="元素类"><strong>元素类</strong></h2>
-<pre><code>var el = document.querySelector('#box');
+              <p>业务中，我们通常需要结合业务来整理一些数据，有一些常用的处理技巧</p>
+<blockquote>
+<p>使用 arr1.push(...arr2) 可比 arr1 = arr1.concat(arr2) 节省时间</p>
+</blockquote>
+<h3 id="filter过滤">filter过滤</h3>
+<pre><code>var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+const result = words.filter(word =&gt; word.length &gt; 6);
+
+console.log(result);
+// expected output: Array [&quot;exuberant&quot;, &quot;destruction&quot;, &quot;present&quot;]
+
 </code></pre>
-<p><strong>获取节点</strong></p>
-<ul>
-<li>document.getElementById(id) 通过id获取元素</li>
-<li>document.getElementsByClassName(class) 通过class获取元素</li>
-<li>document.getElementsByTagName(标签名) 通过元素名称获取元素</li>
-<li>document.querySelector(选择器) 通过CSS选择器来获取一个元素</li>
-<li>document.querySelectorAll(选择器) 通过CSS选择器来获取多个元素</li>
-<li>获取body，以下两种方式均可</li>
-</ul>
-<pre><code>document.body === document.querySelector('body'); // true
+<h3 id="concat">concat</h3>
+<pre><code>var array1 = ['a', 'b', 'c'];
+var array2 = ['d', 'e', 'f'];
+
+console.log(array1.concat(array2));
+// es6中
+console.log(…array1…array2)
+
 </code></pre>
-<p><strong>获取父子节点</strong></p>
-<ul>
-<li>el.childNodes 获取子节点</li>
-<li>el.parentNodes 获取父节点</li>
-</ul>
-<p>// Get parent node var parental= children.parentNode;</p>
-<p><strong>创造节点</strong></p>
-<ul>
-<li>document.createElement(标签名)</li>
-<li>document.createTextNode(文字) 创建文字节点</li>
-</ul>
-<p><strong>操作元素内容</strong></p>
-<ul>
-<li>el.innerText 元素中的文字</li>
-<li>el.innerHTML 元素中的HTML</li>
-<li>el.appendChild(Node) 追加子元素</li>
-<li>el.insertBefore(新Node，参考Node) el作为母元素，将新Node插入到参考Node的前面</li>
-</ul>
+<h3 id="join">join</h3>
+<pre><code>var elements = ['Fire', 'Wind', 'Rain'];
+
+console.log(elements.join());
+// expected output: Fire,Wind,Rain
+
+console.log(elements.join(''));
+// expected output: FireWindRain
+
+console.log(elements.join('-'));
+// expected output: Fire-Wind-Rain
+
+</code></pre>
+<h4 id="foreach">forEach</h4>
+<h6 id="遍历子项的时候执行提供的函数并不改变数组"><strong>遍历子项的时候执行提供的函数,并不改变数组</strong></h6>
+<pre><code>var array1 = ['a', 'b', 'c'];
+
+array1.forEach(function(element) {
+  element+ '2222'
+  console.log(element+ '2222');
+});
+console.log(array1)
+
+</code></pre>
+<h4 id="every">every</h4>
+<pre><code>function isBelowThreshold(currentValue) {
+  return currentValue &lt; 40;
+}
+
+var array1 = [1, 30, 39, 29, 10, 13];
+
+console.log(array1.every(isBelowThreshold));
+
+</code></pre>
+<h4 id="slice">slice</h4>
+<pre><code>var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+console.log(animals.slice(2));
+// expected output: Array [&quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+
+console.log(animals.slice(2, 4));
+// expected output: Array [&quot;camel&quot;, &quot;duck&quot;]
+
+console.log(animals.slice(1, -1));
+// expected output: Array [&quot;bison&quot;, &quot;camel&quot;, &quot;duck&quot;, &quot;elephant&quot;]
+
+</code></pre>
+<h4 id="splice方法"><em>splice</em>方法</h4>
+<h6 id="通过删除现有元素和或添加新元素来更改原数组的内容">通过删除现有元素和/或添加新元素来更改原数组的内容</h6>
+<pre><code>var months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at 1st index position
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'June']
+
+months.splice(4, 1, 'May');
+// replaces 1 element at 4th index
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'May’]
+splice方法使用deleteCount参数来控制是删除还是添加：
+start参数是必须的，表示开始的位置（从0计数），如：start=0从第一个开始；start&gt;= array.length-1表示从最后一个开始。
+①、从start位置开始删除[start，end]的元素。
+array.splice(start)
+②、从start位置开始删除[start，Count]的元素。
+array.splice(start, deleteCount)    
+③、从start位置开始添加item1, item2, ...元素。
+array.splice(start, 0, item1, item2, ...)   
+
+</code></pre>
+<p>遍历数组最严谨的方式</p>
+<pre><code>for (const [i, v] of arr.entries()) {
+    console.log(i, v);
+}
+
+</code></pre>
+<p>indexOf</p>
+<p>检测数组是否存在某个元素</p>
+<pre><code>var beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// expected output: 1
+
+// start from index 2
+console.log(beasts.indexOf('bison', 2));
+// expected output: 4
+
+console.log(beasts.indexOf('duck'));
+
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://wangenbo.cn//post-images/1577166921410.jpg" alt=""></figure>
 
             </div>
             
               <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn//tag/poykPTcMP" class="tag">
-                    玩转js
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/EpR9_tx-jm" class="tag">
-                    速记
-                  </a>
                 
                   <a href="https://wangenbo.cn//tag/M8KcKLDZT" class="tag">
                     javascript
@@ -183,14 +252,18 @@
                     技巧
                   </a>
                 
+                  <a href="https://wangenbo.cn//tag/78roj38sb" class="tag">
+                    总结
+                  </a>
+                
               </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn//post/MB8dzS--A">
+                <a href="https://wangenbo.cn//post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
                   <h3 class="post-title">
-                    正则表达式
+                    前端处理模糊搜索 + 大小写不敏感
                   </h3>
                 </a>
               </div>

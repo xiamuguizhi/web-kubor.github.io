@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>JavaScript的DOM的接口回顾 | webkubor</title>
+<title>Visual Studio Code + eslint + Standard 具体配置分享 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -116,81 +116,124 @@
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
           <div class="post-detail">
-            <h2 class="post-title">JavaScript的DOM的接口回顾</h2>
-            <div class="post-date">2019-10-23</div>
-            
-              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880veytg6j31gs0o6t9s.jpg')">
-              </div>
+            <h2 class="post-title">Visual Studio Code + eslint + Standard 具体配置分享</h2>
+            <div class="post-date">2019-12-24</div>
             
             <div class="post-content">
-              <p>从业务中成长,从代码中感悟。<br>
-原生JS是前端的立身之本也不为过，无论后期转node， TS还是使用框架，都跳不过这个坎，必要时候，我们还是要巩固学习深化javascript</p>
-<!-- more -->
-<h2 id="元素类"><strong>元素类</strong></h2>
-<pre><code>var el = document.querySelector('#box');
+              <h1 id="eslint">eslint</h1>
+<h3 id="vscode自动修复功能">VScode自动修复功能</h3>
+<ol>
+<li>在vscode添加 eslint 插件</li>
+<li>在vscode添加 vetur 插件</li>
+<li>按照下面的配置在自己的用户设置里面配置</li>
+</ol>
+<pre><code class="language-js">&quot;eslint.autoFixOnSave&quot;: true,
+&quot;eslint.validate&quot;: [
+    &quot;javascript&quot;,{
+        &quot;language&quot;: &quot;vue&quot;,
+        &quot;autoFix&quot;: true
+    },&quot;html&quot;,
+    &quot;vue&quot;
+]
+
 </code></pre>
-<p><strong>获取节点</strong></p>
-<ul>
-<li>document.getElementById(id) 通过id获取元素</li>
-<li>document.getElementsByClassName(class) 通过class获取元素</li>
-<li>document.getElementsByTagName(标签名) 通过元素名称获取元素</li>
-<li>document.querySelector(选择器) 通过CSS选择器来获取一个元素</li>
-<li>document.querySelectorAll(选择器) 通过CSS选择器来获取多个元素</li>
-<li>获取body，以下两种方式均可</li>
-</ul>
-<pre><code>document.body === document.querySelector('body'); // true
+<p>到了这一步就可以尝鲜了,当然了,代码规范只是基础,个人认为成熟的技术团队是要统一代码风格的,vscode提供了很好的插件方便我们管理(以前都自己手改,相当累人啊)</p>
+<pre><code>StandardJS - JavaScript Standard Style
 </code></pre>
-<p><strong>获取父子节点</strong></p>
-<ul>
-<li>el.childNodes 获取子节点</li>
-<li>el.parentNodes 获取父节点</li>
-</ul>
-<p>// Get parent node var parental= children.parentNode;</p>
-<p><strong>创造节点</strong></p>
-<ul>
-<li>document.createElement(标签名)</li>
-<li>document.createTextNode(文字) 创建文字节点</li>
-</ul>
-<p><strong>操作元素内容</strong></p>
-<ul>
-<li>el.innerText 元素中的文字</li>
-<li>el.innerHTML 元素中的HTML</li>
-<li>el.appendChild(Node) 追加子元素</li>
-<li>el.insertBefore(新Node，参考Node) el作为母元素，将新Node插入到参考Node的前面</li>
-</ul>
+<h3 id="eslint忽略文件设置">eslint忽略文件设置</h3>
+<p>在脚手架中我们以ESlint语法规则，standard.js风格的代码风格来约束我们的代码，但是有时候为了调试方面，我们需要使用一些调试命令</p>
+<p>忽略下一行内容</p>
+<pre><code class="language-js">// eslint-disable-next-line 
+</code></pre>
+<p>忽略整个文件</p>
+<pre><code class="language-js">/* eslint-disable */ 
+</code></pre>
+<h3 id="统一代码风格standard">统一代码风格standard</h3>
+<p>当然,在我们熟悉了eslint规范我们的代码之后,只是考基本的eslint无法统一团队的代码风格,这时候,就需要对项目加入一些辅助的依赖来规范我们的代码</p>
+<p>这是我项目中关于语法校验证 的一些规则依赖</p>
+<pre><code class="language-js">&quot;eslintConfig&quot;: {
+    &quot;root&quot;: true,
+    &quot;env&quot;: {
+      &quot;node&quot;: true
+    },
+    &quot;extends&quot;: [
+      &quot;plugin:vue/essential&quot;,
+      &quot;eslint:recommended&quot;,
+      &quot;@vue/standard&quot;
+    ],
+    &quot;rules&quot;: {
+      &quot;no-console&quot;: 0
+    },
+    &quot;parserOptions&quot;: {
+      &quot;parser&quot;: &quot;babel-eslint&quot;
+    }
+  }
+</code></pre>
+<h3 id="参考文件">参考文件</h3>
+<p>vue新建项目的package.json</p>
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;mycon-manage&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;private&quot;: true,
+  &quot;scripts&quot;: {
+    &quot;serve&quot;: &quot;vue-cli-service serve&quot;,
+    &quot;build&quot;: &quot;vue-cli-service build&quot;,
+    &quot;lint&quot;: &quot;vue-cli-service lint&quot;
+  },
+  &quot;dependencies&quot;: {
+    &quot;flyio&quot;: &quot;^0.6.7&quot;,
+    &quot;vue&quot;: &quot;^2.5.17&quot;,
+    &quot;vue-router&quot;: &quot;^3.0.2&quot;,
+    &quot;vuex&quot;: &quot;^3.0.1&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;@vue/cli-plugin-babel&quot;: &quot;^3.2.0&quot;,
+    &quot;@vue/cli-plugin-eslint&quot;: &quot;^3.2.1&quot;,
+    &quot;@vue/cli-service&quot;: &quot;^3.2.0&quot;,
+    &quot;babel-eslint&quot;: &quot;^10.0.1&quot;,
+    &quot;eslint&quot;: &quot;^5.8.0&quot;,
+    &quot;eslint-plugin-vue&quot;: &quot;^5.0.0-0&quot;,
+    &quot;vue-template-compiler&quot;: &quot;^2.5.17&quot;
+  },
+  &quot;eslintConfig&quot;: {
+    &quot;root&quot;: true,
+    &quot;env&quot;: {
+      &quot;node&quot;: true
+    },
+    &quot;extends&quot;: [
+      &quot;plugin:vue/essential&quot;,
+      &quot;eslint:recommended&quot;,
+      &quot;@vue/standard&quot;
+    ],
+    &quot;rules&quot;: {
+      &quot;no-console&quot;: 0
+    },
+    &quot;parserOptions&quot;: {
+      &quot;parser&quot;: &quot;babel-eslint&quot;
+    }
+  },
+  &quot;postcss&quot;: {
+    &quot;plugins&quot;: {
+      &quot;autoprefixer&quot;: {}
+    }
+  },
+  &quot;browserslist&quot;: [
+    &quot;&gt; 1%&quot;,
+    &quot;last 2 versions&quot;,
+    &quot;not ie &lt;= 8&quot;
+  ]
+}
+
+</code></pre>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn//tag/poykPTcMP" class="tag">
-                    玩转js
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/EpR9_tx-jm" class="tag">
-                    速记
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/M8KcKLDZT" class="tag">
-                    javascript
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/dTECJI-wn" class="tag">
-                    原生
-                  </a>
-                
-                  <a href="https://wangenbo.cn//tag/_TF60-7kZ" class="tag">
-                    技巧
-                  </a>
-                
-              </div>
             
             
               <div class="next-post">
                 <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn//post/MB8dzS--A">
+                <a href="https://wangenbo.cn//post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
                   <h3 class="post-title">
-                    正则表达式
+                    业务中关于数组的常用场景方法总结
                   </h3>
                 </a>
               </div>
