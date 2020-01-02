@@ -1,352 +1,350 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
-<title>文章归档 | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>webkubor</title>
+<meta name="description" content="不积跬步，无以至千里" />
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577950604600">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577936272043">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150312221-1');
+</script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1577936272043" class="site-logo">
-        <h1 class="site-title">webkubor</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wangenbo.cn/">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1577950604600" alt="">
+  </a>
+  <h1 class="site-title">
+    webkubor
+  </h1>
+  <p class="site-description">
+    不积跬步，无以至千里
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-        
-          <a href="https://wangenbo.cn//post/hello/" class="site-nav">
-            计划
-          </a>
-        
+        <a href="/tags" class="menu">
+          标签
+        </a>
       
-    </div>
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn//post/hello/" class="menu">
+          计划
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/web-kubor" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+        <a href="https://github.com/web-kubor" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
-          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+        <a href="https://weibo.com/wangenbo945" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      不积跬步，无以至千里
-    </div>
-    <div class="site-footer">
-      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-    </div>
+        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/WangEnbo" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
   </div>
 </div>
 
+    
+        
 
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          
+<div class="archives-container">
+  
+    <h2 class="year">2019</h2>
+    
+      
+        <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan" class="post">
+          <h2 class="post-title">
+            团队开发-必掌握点-git项目托管
+          </h2>
+          <div class="time">2019-12-24</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an" class="post">
+          <h2 class="post-title">
+            vue的bug？触发vue数据响应解决方案
+          </h2>
+          <div class="time">2019-12-24</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang" class="post">
+          <h2 class="post-title">
+            Visual Studio Code + eslint + Standard 具体配置分享
+          </h2>
+          <div class="time">2019-12-24</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie" class="post">
+          <h2 class="post-title">
+            业务中关于数组的常用场景方法总结
+          </h2>
+          <div class="time">2019-12-24</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan" class="post">
+          <h2 class="post-title">
+            前端处理模糊搜索 + 大小写不敏感
+          </h2>
+          <div class="time">2019-12-24</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/nr1IMv43q" class="post">
+          <h2 class="post-title">
+            自动化？爬虫？性能测试？puppeteer都能做到
+          </h2>
+          <div class="time">2019-11-29</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/IZm_9cOeI" class="post">
+          <h2 class="post-title">
+            JavaScript的DOM的接口回顾
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/MB8dzS--A" class="post">
+          <h2 class="post-title">
+            正则表达式
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/iLZTgUYSC" class="post">
+          <h2 class="post-title">
+            UI框架的定制化（vant-weapp为例）
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/6cwx2JoDu" class="post">
+          <h2 class="post-title">
+            weapp原生开发-逆地理解析坐标定位
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/DPtcZppAf" class="post">
+          <h2 class="post-title">
+            一篇彻底了解node模块化引用
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/drxij9fP0" class="post">
+          <h2 class="post-title">
+            遍历？迭代？
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/UqmqG3oVl" class="post">
+          <h2 class="post-title">
+            JSON反序列化实现一行代码的深克隆 
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/wol4JdTno" class="post">
+          <h2 class="post-title">
+            关于storage存储的那点事
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/W_gXiVc_0" class="post">
+          <h2 class="post-title">
+            依赖管理工具
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/3CLAlLNwe" class="post">
+          <h2 class="post-title">
+            css小技巧总结（二）
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/CtGNCLIIp" class="post">
+          <h2 class="post-title">
+            css小技巧总结（一）
+          </h2>
+          <div class="time">2019-10-23</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/zhi-fu-fang-shi-zong-jie" class="post">
+          <h2 class="post-title">
+            基于vue的支付方式总结
+          </h2>
+          <div class="time">2019-10-21</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-gitflow-gong-zuo-liu" class="post">
+          <h2 class="post-title">
+            团队开发-gitflow工作流
+          </h2>
+          <div class="time">2019-10-15</div>
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn/post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan" class="post">
+          <h2 class="post-title">
+            关于mpvue的开发指南（暗坑无数）
+          </h2>
+          <div class="time">2019-10-15</div>
+        </a>
+      
+    
+  
+</div>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
-            
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
-                      <h2 class="post-title">
-                        团队开发-必掌握点-git项目托管
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an">
-                      <h2 class="post-title">
-                        vue的bug？触发vue数据响应解决方案
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang">
-                      <h2 class="post-title">
-                        Visual Studio Code + eslint + Standard 具体配置分享
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
-                      <h2 class="post-title">
-                        业务中关于数组的常用场景方法总结
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
-                      <h2 class="post-title">
-                        前端处理模糊搜索 + 大小写不敏感
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/nr1IMv43q">
-                      <h2 class="post-title">
-                        自动化？爬虫？性能测试？puppeteer都能做到
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/IZm_9cOeI">
-                      <h2 class="post-title">
-                        JavaScript的DOM的接口回顾
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/MB8dzS--A">
-                      <h2 class="post-title">
-                        正则表达式
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/iLZTgUYSC">
-                      <h2 class="post-title">
-                        UI框架的定制化（vant-weapp为例）
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/6cwx2JoDu">
-                      <h2 class="post-title">
-                        weapp原生开发-逆地理解析坐标定位
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/DPtcZppAf">
-                      <h2 class="post-title">
-                        一篇彻底了解node模块化引用
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/drxij9fP0">
-                      <h2 class="post-title">
-                        遍历？迭代？
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/UqmqG3oVl">
-                      <h2 class="post-title">
-                        JSON反序列化实现一行代码的深克隆 
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/wol4JdTno">
-                      <h2 class="post-title">
-                        关于storage存储的那点事
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/W_gXiVc_0">
-                      <h2 class="post-title">
-                        依赖管理工具
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/3CLAlLNwe">
-                      <h2 class="post-title">
-                        css小技巧总结（二）
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/CtGNCLIIp">
-                      <h2 class="post-title">
-                        css小技巧总结（一）
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/zhi-fu-fang-shi-zong-jie">
-                      <h2 class="post-title">
-                        基于vue的支付方式总结
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
-                      <h2 class="post-title">
-                        团队开发-gitflow工作流
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-                  <article class="post">
-                    <a href="https://wangenbo.cn/post/mpvue-1-nian-shi-zhan-kai-fa-zhi-nan">
-                      <h2 class="post-title">
-                        关于mpvue的开发指南（暗坑无数）
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-            
-          </div>
-
-          <div class="pagination-container">
+    
+        <div class="pagination-container">
   
   
 </div>
 
-        </div>
-      </div>
-    </div>
+    
+        <div class="site-footer">
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
+  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  hljs.initHighlightingOnLoad()
 
-<script type="application/javascript">
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-AOS.init();
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
 
-hljs.initHighlightingOnLoad()
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
 
 </script>
 
-
-
-
+      </div>
+    </div>
   </body>
 </html>

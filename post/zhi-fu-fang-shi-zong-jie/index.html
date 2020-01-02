@@ -1,129 +1,138 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>基于vue的支付方式总结 | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<meta name="description" content="不积跬步，无以至千里" />
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577950604600">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577936272043">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150312221-1');
+</script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1577936272043" class="site-logo">
-        <h1 class="site-title">webkubor</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wangenbo.cn/">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1577950604600" alt="">
+  </a>
+  <h1 class="site-title">
+    webkubor
+  </h1>
+  <p class="site-description">
+    不积跬步，无以至千里
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-        
-          <a href="https://wangenbo.cn//post/hello/" class="site-nav">
-            计划
-          </a>
-        
+        <a href="/tags" class="menu">
+          标签
+        </a>
       
-    </div>
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn//post/hello/" class="menu">
+          计划
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/web-kubor" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+        <a href="https://github.com/web-kubor" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
-          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+        <a href="https://weibo.com/wangenbo945" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      不积跬步，无以至千里
-    </div>
-    <div class="site-footer">
-      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-    </div>
+        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/WangEnbo" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">基于vue的支付方式总结</h2>
-            <div class="post-date">2019-10-21</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              基于vue的支付方式总结
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-10-21
+              </span>
+              <span>
+                5 min read
+              </span>
+              
+                <a href="https://wangenbo.cn/dTECJI-wn" class="post-tag">
+                  # 原生
+                </a>
+              
+                <a href="https://wangenbo.cn/_TF60-7kZ" class="post-tag">
+                  # 技巧
+                </a>
+              
+                <a href="https://wangenbo.cn/78roj38sb" class="post-tag">
+                  # 总结
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg')">
-              </div>
+              <img class="post-feature-image" src="https://wangenbo.cn//post-images/zhi-fu-fang-shi-zong-jie.jpg" alt="">
             
-            <div class="post-content">
-              <p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>总的来讲主流支付一共两种，微信支付和支付宝，基于这两种支付方式有很多种支付场景，价格我们做一个自适应的网站，就要考虑5种支付场景，我以支付脑图举例：</p>
 <!-- more -->
 <h3 id="支付概述">支付概述</h3>
 <figure data-type="image" tabindex="1"><img src="https://wangenbo.cn//post-images/1571636471860.png" alt="" loading="lazy"></figure>
@@ -274,91 +283,120 @@ result.pay_info.mweb_url是后端配置好后传来的url，我们只需要规�
     },
 </code></pre>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%94%AF%E4%BB%98%E6%A6%82%E8%BF%B0">支付概述</a></li>
+<li><a href="#%E5%BE%AE%E4%BF%A1%E5%86%85%E6%94%AF%E4%BB%98">微信内支付</a>
+<ul>
+<li><a href="#%E6%96%B9%E6%B3%951">方法1：</a></li>
+<li><a href="#%E6%96%B9%E6%B3%952">方法2：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%BE%AE%E4%BF%A1h5%E6%94%AF%E4%BB%98-%E9%80%82%E7%94%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80%E5%B9%B6%E9%80%89%E6%8B%A9%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98">微信h5支付-适用移动端浏览器打开并选择微信支付</a></li>
+<li><a href="#%E5%BE%AE%E4%BF%A1pc%E6%89%AB%E7%A0%81%E6%94%AF%E4%BB%98-%E7%94%B5%E8%84%91%E6%94%AF%E4%BB%98">微信PC扫码支付-电脑支付</a></li>
+<li><a href="#%E6%94%AF%E4%BB%98%E5%AE%9D%E6%94%AF%E4%BB%98pc%E7%A7%BB%E5%8A%A8%E7%9A%86%E5%8F%AF%E7%94%A8">支付宝支付(pc，移动皆可用)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn/tag/dTECJI-wn" class="tag">
-                    原生
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/_TF60-7kZ" class="tag">
-                    技巧
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/78roj38sb" class="tag">
-                    总结
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
-                  <h3 class="post-title">
-                    团队开发-gitflow工作流
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn/post/tuan-dui-kai-fa-gitflow-gong-zuo-liu">
+              <h3 class="post-title">
+                团队开发-gitflow工作流
+              </h3>
+            </a>
+          </div>
+        
 
-<script type="application/javascript">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-AOS.init();
+<div id="gitalk-container"></div>
 
-hljs.initHighlightingOnLoad()
+<script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+  var gitalk = new Gitalk({
+    clientID: 'e80f1cb574c2112fb479',
+    clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+    repo: 'web-kubor.github.io',
+    owner: 'web-kubor',
+    admin: ['web-kubor'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
 
+          
 
+          
+        
 
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+        <div class="site-footer">
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
+  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-      var gitalk = new Gitalk({
-        clientID: 'e80f1cb574c2112fb479',
-        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
-        repo: 'web-kubor.github.io',
-        owner: 'web-kubor',
-        admin: ['web-kubor'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<script>
+  hljs.initHighlightingOnLoad()
 
-      gitalk.render('gitalk-container')
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-    </script>
-  
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
 
-  
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
 
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
 
+</script>
 
-
+      </div>
+    </div>
   </body>
 </html>

@@ -1,129 +1,126 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Visual Studio Code + eslint + Standard 具体配置分享 | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<meta name="description" content="不积跬步，无以至千里" />
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577950604600">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577936272043">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150312221-1');
+</script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1577936272043" class="site-logo">
-        <h1 class="site-title">webkubor</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wangenbo.cn/">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1577950604600" alt="">
+  </a>
+  <h1 class="site-title">
+    webkubor
+  </h1>
+  <p class="site-description">
+    不积跬步，无以至千里
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-        
-          <a href="https://wangenbo.cn//post/hello/" class="site-nav">
-            计划
-          </a>
-        
+        <a href="/tags" class="menu">
+          标签
+        </a>
       
-    </div>
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn//post/hello/" class="menu">
+          计划
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/web-kubor" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+        <a href="https://github.com/web-kubor" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
-          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+        <a href="https://weibo.com/wangenbo945" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      不积跬步，无以至千里
-    </div>
-    <div class="site-footer">
-      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-    </div>
+        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/WangEnbo" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">Visual Studio Code + eslint + Standard 具体配置分享</h2>
-            <div class="post-date">2019-12-24</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Visual Studio Code + eslint + Standard 具体配置分享
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-12-24
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://wangenbo.cn//post-images/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang.jpg')">
-              </div>
+              <img class="post-feature-image" src="https://wangenbo.cn//post-images/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang.jpg" alt="">
             
-            <div class="post-content">
-              <h1 id="eslint">eslint</h1>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <h1 id="eslint">eslint</h1>
 <h3 id="vscode自动修复功能">VScode自动修复功能</h3>
 <ol>
 <li>在vscode添加 eslint 插件</li>
@@ -229,75 +226,111 @@
 
 </code></pre>
 
-            </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
-                  <h3 class="post-title">
-                    业务中关于数组的常用场景方法总结
-                  </h3>
-                </a>
               </div>
-            
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li><a href="#eslint">eslint</a><br>
+*
+<ul>
+<li><a href="#vscode%E8%87%AA%E5%8A%A8%E4%BF%AE%E5%A4%8D%E5%8A%9F%E8%83%BD">VScode自动修复功能</a></li>
+<li><a href="#eslint%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%E8%AE%BE%E7%BD%AE">eslint忽略文件设置</a></li>
+<li><a href="#%E7%BB%9F%E4%B8%80%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BCstandard">统一代码风格standard</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E6%96%87%E4%BB%B6">参考文件</a></li>
+</ul>
+</li>
+</ul>
 
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+              </div>
+            </div>
+          </article>
         </div>
-      </div>
-    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
+              <h3 class="post-title">
+                业务中关于数组的常用场景方法总结
+              </h3>
+            </a>
+          </div>
+        
 
-<script type="application/javascript">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-AOS.init();
+<div id="gitalk-container"></div>
 
-hljs.initHighlightingOnLoad()
+<script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+  var gitalk = new Gitalk({
+    clientID: 'e80f1cb574c2112fb479',
+    clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+    repo: 'web-kubor.github.io',
+    owner: 'web-kubor',
+    admin: ['web-kubor'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
 
+          
 
+          
+        
 
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+        <div class="site-footer">
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
+  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-      var gitalk = new Gitalk({
-        clientID: 'e80f1cb574c2112fb479',
-        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
-        repo: 'web-kubor.github.io',
-        owner: 'web-kubor',
-        admin: ['web-kubor'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<script>
+  hljs.initHighlightingOnLoad()
 
-      gitalk.render('gitalk-container')
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-    </script>
-  
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
 
-  
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
 
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
 
+</script>
 
-
+      </div>
+    </div>
   </body>
 </html>

@@ -1,129 +1,142 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>css小技巧总结（二） | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<meta name="description" content="不积跬步，无以至千里" />
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577950604600">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577936272043">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150312221-1');
+</script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1577936272043" class="site-logo">
-        <h1 class="site-title">webkubor</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wangenbo.cn/">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1577950604600" alt="">
+  </a>
+  <h1 class="site-title">
+    webkubor
+  </h1>
+  <p class="site-description">
+    不积跬步，无以至千里
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-        
-          <a href="https://wangenbo.cn//post/hello/" class="site-nav">
-            计划
-          </a>
-        
+        <a href="/tags" class="menu">
+          标签
+        </a>
       
-    </div>
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn//post/hello/" class="menu">
+          计划
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/web-kubor" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+        <a href="https://github.com/web-kubor" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
-          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+        <a href="https://weibo.com/wangenbo945" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      不积跬步，无以至千里
-    </div>
-    <div class="site-footer">
-      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-    </div>
+        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/WangEnbo" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">css小技巧总结（二）</h2>
-            <div class="post-date">2019-10-23</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              css小技巧总结（二）
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-10-23
+              </span>
+              <span>
+                6 min read
+              </span>
+              
+                <a href="https://wangenbo.cn/dTECJI-wn" class="post-tag">
+                  # 原生
+                </a>
+              
+                <a href="https://wangenbo.cn/_TF60-7kZ" class="post-tag">
+                  # 技巧
+                </a>
+              
+                <a href="https://wangenbo.cn/UFzDmbs5v" class="post-tag">
+                  # css
+                </a>
+              
+                <a href="https://wangenbo.cn/78roj38sb" class="post-tag">
+                  # 总结
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880id1fssj31o00u043d.jpg')">
-              </div>
+              <img class="post-feature-image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g880id1fssj31o00u043d.jpg" alt="">
             
-            <div class="post-content">
-              <p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>这是2018-11-14号总结的关于互联网实现项目的css处理方案，现在看起来还是有所收益的</p>
 <!-- more -->
 <h2 id="1-一般我们做多页面管理样式表会作为外链表引入项目页面较多时如果不加处理很容易造成样式污染在导入方法上很讲究">1、一般我们做多页面管理，样式表会作为外链表引入，项目页面较多时如果不加处理很容易造成样式污染,在导入方法上很讲究：</h2>
 <p>这样写的css文件中的样式只能在本组件中使用，而不会影响其他组件</p>
@@ -236,95 +249,117 @@ border: none;
 <p>分享到此结束，如果大家有什么好的建议或者是愿意与我交流前端技术的可以给我email，邮箱地址会在首页右侧显示</p>
 </blockquote>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#1-%E4%B8%80%E8%88%AC%E6%88%91%E4%BB%AC%E5%81%9A%E5%A4%9A%E9%A1%B5%E9%9D%A2%E7%AE%A1%E7%90%86%E6%A0%B7%E5%BC%8F%E8%A1%A8%E4%BC%9A%E4%BD%9C%E4%B8%BA%E5%A4%96%E9%93%BE%E8%A1%A8%E5%BC%95%E5%85%A5%E9%A1%B9%E7%9B%AE%E9%A1%B5%E9%9D%A2%E8%BE%83%E5%A4%9A%E6%97%B6%E5%A6%82%E6%9E%9C%E4%B8%8D%E5%8A%A0%E5%A4%84%E7%90%86%E5%BE%88%E5%AE%B9%E6%98%93%E9%80%A0%E6%88%90%E6%A0%B7%E5%BC%8F%E6%B1%A1%E6%9F%93%E5%9C%A8%E5%AF%BC%E5%85%A5%E6%96%B9%E6%B3%95%E4%B8%8A%E5%BE%88%E8%AE%B2%E7%A9%B6">1、一般我们做多页面管理，样式表会作为外链表引入，项目页面较多时如果不加处理很容易造成样式污染,在导入方法上很讲究：</a></li>
+<li><a href="#2-%E4%B8%80%E8%88%AC%E5%81%9A%E7%94%B5%E5%95%86%E7%B1%BB%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF%E9%A2%98%E6%9D%90%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E5%AF%B9%E6%96%87%E5%AD%97%E8%BE%B9%E7%BC%98%E5%AF%B9%E9%BD%90%E5%A4%84%E7%90%86">2、一般做电商类帮助信息题材，我们需要对文字边缘对齐处理</a></li>
+<li><a href="#3-%E9%80%9A%E8%BF%87%E4%BC%AA%E7%B1%BB%E6%9D%A5%E6%A8%A1%E6%8B%9F%E9%80%89%E9%A1%B9%E5%8D%A1%E5%8A%9F%E8%83%BD">3、通过伪类来模拟选项卡功能</a></li>
+<li><a href="#4-%E5%BD%93%E6%9F%90%E4%BA%9B%E5%80%BC%E7%9B%B8%E4%BA%92%E4%BE%9D%E8%B5%96%E6%97%B6%E5%BA%94%E8%AF%A5%E6%8A%8A%E5%AE%83%E4%BB%AC%E7%9A%84%E7%9B%B8%E4%BA%92%E5%85%B3%E7%B3%BB%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A1%A8%E8%BE%BE%E5%87%BA%E6%9D%A5-%E4%BB%8E%E8%80%8C%E5%B0%BD%E9%87%8F%E5%87%8F%E5%B0%91-%E6%94%B9%E5%8A%A8%E6%97%B6%E8%A6%81%E7%BC%96%E8%BE%91%E7%9A%84%E5%9C%B0%E6%96%B9%E5%9C%A8%E8%BF%99%E4%B8%AA%E4%BE%8B%E5%AD%90%E4%B8%AD%E8%A1%8C%E9%AB%98%E6%98%AF%E5%AD%97%E5%8F%B7%E7%9A%84-15-%E5%80%8D-%E5%9B%A0-%E6%AD%A4%E6%8A%8A%E4%BB%A3%E7%A0%81%E6%94%B9%E6%88%90%E4%B8%8B%E9%9D%A2%E8%BF%99%E6%A0%B7%E4%BC%9A%E6%9B%B4%E6%98%93%E7%BB%B4%E6%8A%A4">4、当某些值相互依赖时，应该把它们的相互关系用代码表达出来。从而尽量减少 改动时要编辑的地方在这个例子中，行高是字号的 1.5 倍。因 此，把代码改成下面这样会更易维护:</a></li>
+<li><a href="#5-%E4%B8%BA%E4%BA%86%E9%81%BF%E5%85%8D%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8%E4%B8%AD%E8%A1%A8%E7%8E%B0%E4%B8%8D%E5%90%8C%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%83%85%E5%86%B5%E4%BA%A7%E7%94%9F">5、为了避免在不同的浏览器中表现不同盒子模型的情况产生</a></li>
+<li><a href="#6-%E5%BD%93%E6%88%91%E4%BB%AC%E4%B8%BA%E4%BA%86%E8%B4%A6%E6%88%B7%E4%BF%9D%E5%AF%86%E9%9C%80%E8%A6%81%E9%98%B2%E6%AD%A2%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AF%86%E7%A0%81%E5%9C%A8chrome%E4%B8%8A%E8%BE%83%E4%B8%BA%E4%B8%A5%E9%87%8Dchrome%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%B0%E5%BD%95%E5%AF%86%E7%A0%81%E9%80%9A%E5%B8%B8%E6%88%91%E4%BB%AC%E4%BC%9A%E5%9C%A8form%E8%A1%A8%E5%8D%95%E4%B8%8A%E5%8A%A0%E5%85%A5autocompleteoff-%E6%88%96%E8%80%85-%E5%9C%A8%E8%BE%93%E5%85%A5%E6%A1%86%E4%B8%AD%E5%8A%A0%E5%85%A5autocompleteoff">6、当我们为了账户保密,需要防止自动填充密码,在chrome上较为严重,chrome会自动记录密码,通常我们会在form表单上加入<code>autocomplete=&quot;off&quot;</code> 或者 在输入框中加入<code>autocomplete=&quot;off&quot;</code></a></li>
+<li><a href="#7-%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%E6%98%AFps%E7%9A%84%E4%B8%80%E7%A7%8D%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%84%E7%90%86%E6%8A%80%E5%B7%A7%E5%9C%A8%E5%81%9A%E7%A7%BB%E5%8A%A8web%E6%88%96%E8%80%85%E6%98%AFh5%E9%A1%B9%E7%9B%AE%E6%97%B6%E6%9C%89%E7%9A%84ui%E4%BC%9A%E8%A6%81%E6%B1%82%E6%88%91%E4%BB%AC%E6%A0%B9%E6%8D%AE%E7%94%A8%E6%88%B7%E7%9A%84%E5%A4%B4%E5%83%8F%E5%81%9A%E6%88%90%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A%E7%9A%84%E5%A4%B4%E5%83%8F%E8%83%8C%E6%99%AF">7、高斯模糊是PS的一种常见的处理技巧，在做移动web，或者是H5项目时，有的UI会要求我们根据用户的头像，做成高斯模糊的头像背景</a></li>
+<li><a href="#8-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%88%9D%E6%9C%9F%E4%B9%9F%E5%B0%B1%E6%98%AF%E8%BF%98%E5%8E%9Fui%E8%AE%BE%E8%AE%A1%E5%9B%BE%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E6%88%91%E4%BB%AC%E7%BB%8F%E5%B8%B8%E7%A2%B0%E5%88%B0%E5%88%B0%E5%A4%84%E7%90%86%E5%BE%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E7%9A%84%E5%8E%9F%E5%A7%8B%E5%9B%BA%E5%AE%9A%E7%9A%84%E6%A0%B7%E5%BC%8F%E8%99%BD%E7%84%B6%E5%8F%AF%E4%BB%A5%E9%87%87%E7%94%A8%E6%A0%B7%E5%BC%8F%E8%A6%86%E7%9B%96%E4%BD%86%E6%98%AF%E9%9C%80%E8%A6%81%E6%88%91%E4%BB%AC%E7%A2%B0%E5%88%B0%E4%B8%80%E4%B8%AA%E6%94%B9%E4%B8%80%E4%B8%AA%E5%BC%80%E5%8F%91%E6%95%88%E7%8E%87%E5%B9%B6%E4%B8%8D%E9%AB%98%E8%BF%99%E9%87%8C%E6%8E%A8%E8%8D%90%E9%87%87%E7%94%A8css3%E4%B8%AD%E7%9A%84%E4%B8%80%E4%B8%AA%E5%A4%84%E7%90%86%E5%8A%9E%E6%B3%95%E6%95%88%E7%8E%87%E6%9E%81%E9%AB%98%E6%9C%80%E4%BD%B3%E6%96%B9%E6%A1%88">8、在项目开发初期，也就是还原UI设计图的过程中，我们经常碰到到处理很多标签的原始固定的样式，虽然可以采用样式覆盖，但是需要我们碰到一个改一个，开发效率并不高，这里推荐采用css3中的一个处理办法效率极高，最佳方案：</a></li>
+<li><a href="#9-%E6%9C%80%E8%BF%91%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E4%B8%ADscroll-view%E6%A0%87%E7%AD%BE%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C%E4%B8%AD%E5%9C%A8%E5%AE%89%E5%8D%93%E6%9C%BA%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%BB%98%E8%AE%A4%E7%9A%84%E4%B8%BB%E8%BD%B4%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%92%88%E5%AF%B9%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%BB%98%E8%AE%A4%E5%87%BA%E7%8E%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E4%BC%9A%E9%87%87%E7%94%A8class%E7%88%B6%E7%B1%BB%E5%B1%82%E7%BA%A7%E5%B5%8C%E5%A5%97%E6%88%96%E8%80%85%E7%9B%B4%E6%8E%A5import%E4%BD%86%E6%98%AF%E5%AE%9E%E6%B5%8B%E5%BE%88%E5%A4%9A%E5%9C%BA%E6%99%AF%E4%B8%8B%E5%B9%B6%E4%B8%8D%E7%AE%A1%E7%94%A8%E8%BF%99%E9%87%8C%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E8%A1%8C%E5%86%85%E6%A0%87%E7%AD%BE%E8%BF%99%E6%98%AF%E8%8D%89%E8%8E%BD%E5%81%9A%E6%B3%95%E6%9C%80%E4%BD%B3%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BC%AA%E7%B1%BB%E8%A6%81%E5%96%84%E7%94%A8%E4%BC%AA%E7%B1%BB%E4%BC%AA%E7%B1%BB%E9%9D%9E%E5%B8%B8%E5%A5%BD%E7%94%A8">9、最近开发微信小程序项目中，scroll-view标签的使用体验中，在安卓机会出现一个默认的主轴滚动条，针对框架中的一些默认出现的样式，我们一般会采用class父类层级嵌套，或者直接import，但是实测很多场景下并不管用，这里不推荐使用行内标签，这是草莽做法，最佳解决方法，伪类，要善用伪类，伪类非常好用</a></li>
+<li><a href="#9-%E6%88%91%E4%BB%AC%E4%B8%80%E8%88%AC%E5%BC%80%E5%8F%91pc%E7%AB%AF%E9%A1%B9%E7%9B%AE%E6%97%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E4%BC%9A%E8%8A%B1%E5%BE%88%E5%A4%9A%E5%8A%9F%E5%A4%AB%E5%9C%A8%E7%BD%91%E9%A1%B5logo%E4%B8%8A%E9%82%A3%E5%AF%B9%E4%BA%8E%E6%88%91%E4%BB%AC%E5%BC%80%E5%8F%91%E8%80%85%E8%80%8C%E8%A8%80%E8%87%AA%E5%B7%B1%E5%81%9A%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%88%96%E8%80%85demo%E5%B1%95%E7%A4%BA%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%BD%AC%E5%8C%96%E4%B8%80%E8%88%AC%E5%9B%BE%E7%89%87%E6%9D%A5%E5%BD%93%E5%81%9A%E6%88%91%E4%BB%AC%E7%9A%84logo%E5%91%A2">9、 我们一般开发PC端项目时，设计师会花很多功夫在网页logo上，那对于我们开发者而言，自己做个博客或者demo展示项目的时候，如何快速转化一般图片来当做我们的logo呢？</a></li>
+<li><a href="#10-%E4%B8%8D%E7%9F%A5%E9%81%93%E5%A4%A7%E5%AE%B6%E5%B9%B3%E6%97%B6%E5%81%9A%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%97%B6%E5%80%99%E6%9C%89%E6%9C%A8%E6%9C%89%E5%85%B3%E6%B3%A8%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E5%85%B6%E5%AE%9E%E4%B9%8B%E5%89%8D%E5%81%9A%E9%A1%B9%E7%9B%AE%E9%81%87%E5%88%B0%E8%BF%87%E7%B1%BB%E4%BC%BC%E7%9A%84%E9%97%AE%E9%A2%98%E4%BD%86%E6%98%AF%E5%9B%A0%E4%B8%BA%E6%98%AF%E5%8D%95%E7%8B%AC%E7%9A%84chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%A1%AB%E5%85%85%E8%80%8C%E4%B8%94%E6%98%AF%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98%E7%A8%8D%E5%BE%AE%E4%B8%A5%E9%87%8D%E7%82%B9%E4%B9%9F%E5%B0%B1%E6%B2%A1%E5%9C%A8%E6%84%8F-%E7%84%B6%E8%80%8C%E5%9C%A8%E8%BF%91%E6%9C%9F%E7%9A%84%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%9C%89%E9%81%87%E5%88%B0%E4%BA%86%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E6%9C%80%E4%B8%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%BD%91%E7%AB%99%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%99%BB%E9%99%86%E6%88%96%E6%98%AF%E6%B3%A8%E5%86%8C%E5%B0%B1%E8%A2%AB%E5%A1%AB%E5%85%85%E8%BF%99%E4%B8%AA%E9%97%AE%E9%A2%98%E7%BB%86%E6%80%9D%E6%9E%81%E6%81%90">10、不知道大家平时做项目的时候有木有关注这个问题，其实之前做项目遇到过类似的问题，但是因为是单独的chrome浏览器的填充，而且是样式问题稍微严重点，也就没在意。然而在近期的项目中有遇到了这个问题，最为一个新的网站，第一次登陆或是注册就被填充，这个问题，细思极恐.</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn/tag/dTECJI-wn" class="tag">
-                    原生
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/_TF60-7kZ" class="tag">
-                    技巧
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/UFzDmbs5v" class="tag">
-                    css
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/78roj38sb" class="tag">
-                    总结
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn/post/CtGNCLIIp">
-                  <h3 class="post-title">
-                    css小技巧总结（一）
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn/post/CtGNCLIIp">
+              <h3 class="post-title">
+                css小技巧总结（一）
+              </h3>
+            </a>
+          </div>
+        
 
-<script type="application/javascript">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-AOS.init();
+<div id="gitalk-container"></div>
 
-hljs.initHighlightingOnLoad()
+<script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+  var gitalk = new Gitalk({
+    clientID: 'e80f1cb574c2112fb479',
+    clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+    repo: 'web-kubor.github.io',
+    owner: 'web-kubor',
+    admin: ['web-kubor'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
 
+          
 
+          
+        
 
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+        <div class="site-footer">
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
+  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-      var gitalk = new Gitalk({
-        clientID: 'e80f1cb574c2112fb479',
-        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
-        repo: 'web-kubor.github.io',
-        owner: 'web-kubor',
-        admin: ['web-kubor'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<script>
+  hljs.initHighlightingOnLoad()
 
-      gitalk.render('gitalk-container')
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-    </script>
-  
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
 
-  
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
 
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
 
+</script>
 
-
+      </div>
+    </div>
   </body>
 </html>

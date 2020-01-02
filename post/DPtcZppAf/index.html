@@ -1,129 +1,134 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>一篇彻底了解node模块化引用 | webkubor</title>
-<meta name="description" content="不积跬步，无以至千里">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<meta name="description" content="不积跬步，无以至千里" />
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577950604600">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1577936272043">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
 
-
-  
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css" />
-  
-
-  
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150312221-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150312221-1');
+</script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://wangenbo.cn/">
-        <img src="https://wangenbo.cn//images/avatar.png?v=1577936272043" class="site-logo">
-        <h1 class="site-title">webkubor</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://wangenbo.cn/">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1577950604600" alt="">
+  </a>
+  <h1 class="site-title">
+    webkubor
+  </h1>
+  <p class="site-description">
+    不积跬步，无以至千里
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-        
-          <a href="https://wangenbo.cn//post/hello/" class="site-nav">
-            计划
-          </a>
-        
+        <a href="/tags" class="menu">
+          标签
+        </a>
       
-    </div>
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+      
+        <a href="https://wangenbo.cn//post/hello/" class="menu">
+          计划
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/web-kubor" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+        <a href="https://github.com/web-kubor" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
       
-        
+    
       
-        
-          <a class="social-link" href="https://weibo.com/wangenbo945" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://www.zhihu.com/people/wangenbo" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+        <a href="https://weibo.com/wangenbo945" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
       
-        
+    
       
-    </div>
-    <div class="site-description">
-      不积跬步，无以至千里
-    </div>
-    <div class="site-footer">
-      Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
-    </div>
+        <a href="https://www.zhihu.com/people/wangenbo" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+        <a href="https://www.facebook.com/WangEnbo" target="_blank">
+          <i class="fab fa-facebook"></i>
+        </a>
+      
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">一篇彻底了解node模块化引用</h2>
-            <div class="post-date">2019-10-23</div>
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              一篇彻底了解node模块化引用
+            </h2>
+            <div class="post-info">
+              <span>
+                2019-10-23
+              </span>
+              <span>
+                3 min read
+              </span>
+              
+                <a href="https://wangenbo.cn/KyDsD_BcF" class="post-tag">
+                  # node
+                </a>
+              
+                <a href="https://wangenbo.cn/dTECJI-wn" class="post-tag">
+                  # 原生
+                </a>
+              
+            </div>
             
-              <div class="feature-container" style="background-image: url('https://tva1.sinaimg.cn/large/006y8mN6ly1g880gycy4bj313p0qdwh1.jpg')">
-              </div>
+              <img class="post-feature-image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g880gycy4bj313p0qdwh1.jpg" alt="">
             
-            <div class="post-content">
-              <p>node有个很重要的概念，模块系统</p>
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>node有个很重要的概念，模块系统</p>
 <ul>
 <li>模块作用域</li>
 <li>使用require来加载模块</li>
@@ -207,87 +212,125 @@ exports.foo ='bar'
 <p><code>var exports = module.exports</code></p>
 <p>一定要记住最后 return的事 module.export不是exports</p>
 
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#%E6%A8%A1%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F">模块作用域</a></li>
+<li><a href="#%E5%8A%A0%E8%BD%BD-require">加载 <code>require</code></a><br>
+*
+<ul>
+<li><a href="#%E6%A8%A1%E5%9D%97%E5%8A%A0%E8%BD%BD%E8%A7%84%E5%88%99">模块加载规则</a></li>
+</ul>
+</li>
+<li><a href="#%E5%AF%BC%E5%87%BA-exports">导出 <code>exports</code></a><br>
+*
+<ul>
+<li><a href="#%E5%AF%BC%E5%87%BA%E5%A4%9A%E4%B8%AA%E5%AF%B9%E8%B1%A1">导出多个对象</a></li>
+<li><a href="#%E5%AF%BC%E5%87%BA%E5%8D%95%E4%B8%AA%E5%AF%B9%E8%B1%A1">导出单个对象</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8E%9F%E7%90%86%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA">原理深入浅出</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+              </div>
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://wangenbo.cn/tag/KyDsD_BcF" class="tag">
-                    node
-                  </a>
-                
-                  <a href="https://wangenbo.cn/tag/dTECJI-wn" class="tag">
-                    原生
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://wangenbo.cn/post/drxij9fP0">
-                  <h3 class="post-title">
-                    遍历？迭代？
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-              
-                <div id="gitalk-container" data-aos="fade-in"></div>
-              
-
-              
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://wangenbo.cn/post/drxij9fP0">
+              <h3 class="post-title">
+                遍历？迭代？
+              </h3>
+            </a>
+          </div>
+        
 
-<script type="application/javascript">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 
-AOS.init();
+<div id="gitalk-container"></div>
 
-hljs.initHighlightingOnLoad()
+<script>
 
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
+  var gitalk = new Gitalk({
+    clientID: 'e80f1cb574c2112fb479',
+    clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
+    repo: 'web-kubor.github.io',
+    owner: 'web-kubor',
+    admin: ['web-kubor'],
+    id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
 
 </script>
 
+          
 
+          
+        
 
-  
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
+        <div class="site-footer">
+  Powered by <a href="http://wangenbo.cn/post/about/" target="_blank">王恩博</a> | 
+  <a class="rss" href="https://wangenbo.cn//atom.xml" target="_blank">RSS</a>
+</div>
 
-      var gitalk = new Gitalk({
-        clientID: 'e80f1cb574c2112fb479',
-        clientSecret: '88a47a3b080aa66f70e36e9b133f4209080dbb1c',
-        repo: 'web-kubor.github.io',
-        owner: 'web-kubor',
-        admin: ['web-kubor'],
-        id: (location.pathname).substring(0, 49),      // Ensure uniqueness and length less than 50
-        distractionFreeMode: false  // Facebook-like distraction free mode
-      })
+<script>
+  hljs.initHighlightingOnLoad()
 
-      gitalk.render('gitalk-container')
+  let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
 
-    </script>
-  
+  // This should probably be throttled.
+  // Especially because it triggers during smooth scrolling.
+  // https://lodash.com/docs/4.17.10#throttle
+  // You could do like...
+  // window.addEventListener("scroll", () => {
+  //    _.throttle(doThatStuff, 100);
+  // });
+  // Only not doing it here to keep this Pen dependency-free.
 
-  
+  window.addEventListener("scroll", event => {
+    let fromTop = window.scrollY;
 
+    mainNavLinks.forEach((link, index) => {
+      let section = document.getElementById(decodeURI(link.hash).substring(1));
+      let nextSection = null
+      if (mainNavLinks[index + 1]) {
+        nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+      }
+      if (section.offsetTop <= fromTop) {
+        if (nextSection) {
+          if (nextSection.offsetTop > fromTop) {
+            link.classList.add("current");
+          } else {
+            link.classList.remove("current");    
+          }
+        } else {
+          link.classList.add("current");
+        }
+      } else {
+        link.classList.remove("current");
+      }
+    });
+  });
 
+</script>
 
-
+      </div>
+    </div>
   </body>
 </html>
