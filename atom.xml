@@ -2,46 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>webkubor</title>
-    <updated>2019-12-31T08:09:49.232Z</updated>
+    <updated>2020-01-02T03:38:39.425Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
-    <link rel="self" href="https://wangenbo.cn//atom.xml"/>
+    <link rel="self" href="https://wangenbo.cn/atom.xml"/>
     <subtitle>不积跬步，无以至千里</subtitle>
-    <logo>https://wangenbo.cn//images/avatar.png</logo>
-    <icon>https://wangenbo.cn//favicon.ico</icon>
-    <rights>All rights reserved 2019, webkubor</rights>
+    <logo>https://wangenbo.cn/images/avatar.png</logo>
+    <icon>https://wangenbo.cn/favicon.ico</icon>
+    <rights>All rights reserved 2020, webkubor</rights>
     <entry>
         <title type="html"><![CDATA[团队开发-必掌握点-git项目托管]]></title>
-        <id>https://wangenbo.cn//post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan</id>
-        <link href="https://wangenbo.cn//post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
+        <id>https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan</id>
+        <link href="https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
         </link>
         <updated>2019-12-24T06:04:23.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[vue的bug？触发vue数据响应解决方案]]></title>
-        <id>https://wangenbo.cn//post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an</id>
-        <link href="https://wangenbo.cn//post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an">
+        <id>https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an</id>
+        <link href="https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an">
         </link>
         <updated>2019-12-24T06:00:45.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Visual Studio Code + eslint + Standard 具体配置分享]]></title>
-        <id>https://wangenbo.cn//post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang</id>
-        <link href="https://wangenbo.cn//post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang">
+        <id>https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang</id>
+        <link href="https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang">
         </link>
         <updated>2019-12-24T05:57:48.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[业务中关于数组的常用场景方法总结]]></title>
-        <id>https://wangenbo.cn//post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie</id>
-        <link href="https://wangenbo.cn//post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
+        <id>https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie</id>
+        <link href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
         </link>
         <updated>2019-12-24T05:54:17.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[前端处理模糊搜索 + 大小写不敏感]]></title>
-        <id>https://wangenbo.cn//post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan</id>
-        <link href="https://wangenbo.cn//post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
+        <id>https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan</id>
+        <link href="https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
         </link>
         <updated>2019-12-24T05:48:53.000Z</updated>
         <summary type="html"><![CDATA[<p>前端时间公司的微服务转化为文档数据库mongodb，除了维护微服务外，一些前端的交互功能叶需要有相应的优化调整</p>
@@ -51,8 +51,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[自动化？爬虫？性能测试？puppeteer都能做到]]></title>
-        <id>https://wangenbo.cn//post/nr1IMv43q</id>
-        <link href="https://wangenbo.cn//post/nr1IMv43q">
+        <id>https://wangenbo.cn/post/nr1IMv43q</id>
+        <link href="https://wangenbo.cn/post/nr1IMv43q">
         </link>
         <updated>2019-11-29T09:59:49.000Z</updated>
         <summary type="html"><![CDATA[<p>今天日常技术群讨论到Chrome的无头浏览器puppeteer，站主在掘金上简单的搜了一下，爬虫、性能测试，自动化，居然都可以做，简单的跟着官网api走了一遍，发现了一些骚操作，尤其是自动渲染目标网站长图，PDF导出</p>
@@ -62,8 +62,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[JavaScript的DOM的接口回顾]]></title>
-        <id>https://wangenbo.cn//post/IZm_9cOeI</id>
-        <link href="https://wangenbo.cn//post/IZm_9cOeI">
+        <id>https://wangenbo.cn/post/IZm_9cOeI</id>
+        <link href="https://wangenbo.cn/post/IZm_9cOeI">
         </link>
         <updated>2019-10-23T04:29:22.000Z</updated>
         <summary type="html"><![CDATA[<p>从业务中成长,从代码中感悟。<br>
@@ -75,8 +75,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[正则表达式]]></title>
-        <id>https://wangenbo.cn//post/MB8dzS--A</id>
-        <link href="https://wangenbo.cn//post/MB8dzS--A">
+        <id>https://wangenbo.cn/post/MB8dzS--A</id>
+        <link href="https://wangenbo.cn/post/MB8dzS--A">
         </link>
         <updated>2019-10-23T04:23:34.000Z</updated>
         <summary type="html"><![CDATA[<p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
@@ -86,8 +86,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[UI框架的定制化（vant-weapp为例）]]></title>
-        <id>https://wangenbo.cn//post/iLZTgUYSC</id>
-        <link href="https://wangenbo.cn//post/iLZTgUYSC">
+        <id>https://wangenbo.cn/post/iLZTgUYSC</id>
+        <link href="https://wangenbo.cn/post/iLZTgUYSC">
         </link>
         <updated>2019-10-23T04:14:07.000Z</updated>
         <summary type="html"><![CDATA[<p>使用UI框架难免会遇到样式覆盖的问题，覆盖原来的样式做到还原定制化的UI界面，我们必须掌握一个可以复制或者是可以工程化的样式覆盖方式</p>
@@ -97,8 +97,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[weapp原生开发-逆地理解析坐标定位]]></title>
-        <id>https://wangenbo.cn//post/6cwx2JoDu</id>
-        <link href="https://wangenbo.cn//post/6cwx2JoDu">
+        <id>https://wangenbo.cn/post/6cwx2JoDu</id>
+        <link href="https://wangenbo.cn/post/6cwx2JoDu">
         </link>
         <updated>2019-10-23T04:11:02.000Z</updated>
         <summary type="html"><![CDATA[<p>话不多说，直接上手开发</p>
