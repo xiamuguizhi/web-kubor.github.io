@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>自动化？爬虫？性能测试？puppeteer都能做到 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里" />
-<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1578552530882">
+<link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1578633686698">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://wangenbo.cn//styles/main.css">
@@ -29,7 +29,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://wangenbo.cn/">
-  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1578552530882" alt="">
+  <img class="avatar" src="https://wangenbo.cn//images/avatar.png?v=1578633686698" alt="">
   </a>
   <h1 class="site-title">
     webkubor
@@ -111,7 +111,7 @@
                 2019-11-29
               </span>
               <span>
-                1 min read
+                5 min read
               </span>
               
                 <a href="https://wangenbo.cn/hBCWz-XYe" class="post-tag">
@@ -146,10 +146,160 @@
               <div class="post-content">
                 <p>今天日常技术群讨论到Chrome的无头浏览器puppeteer，站主在掘金上简单的搜了一下，爬虫、性能测试，自动化，居然都可以做，简单的跟着官网api走了一遍，发现了一些骚操作，尤其是自动渲染目标网站长图，PDF导出</p>
 <!-- more -->
+<h2 id="puppeteer">puppeteer</h2>
+<p>Puppeteer 是一个 Node 库，它提供了一个高级 API 来通过 <a href="http://puppeteerjs.com/(https://chromedevtools.github.io/devtools-protocol/)">DevTools</a> 协议控制 Chromium 或 Chrome，但是它能干什么呢？小编看了一圈，发现了几个简单易用的功能,其余功能请查询官网：传送入口(http://puppeteerjs.com/)</p>
+<ul>
+<li>生成页面 PDF</li>
+<li>获取页面长图</li>
+<li>自动提交表单，进行 UI 测试，键盘输入等</li>
+<li>爬虫等</li>
+</ul>
+<h4 id="start">start</h4>
+<p>项目中使用</p>
+<pre><code>npm i puppeteer
+# or &quot;yarn add puppeteer&quot;
+</code></pre>
+<p>Note: Puppeteer 至少需要 Node v6.4.0，下面的示例使用 async / await，它们仅在 Node v7.6.0 或更高版本中被支持。</p>
+<p>Puppeteer 使用起来和其他测试框架类似。你需要创建一个 <code>Browser</code> 实例，打开页面，然后使用 <a href="https://github.com/GoogleChrome/puppeteer/blob/v1.10.0/docs/api.md#">Puppeteer 的 API</a>。</p>
+<h4 id="screenshot">screenshot</h4>
+<p>官网也有关于截图的demo，这里调整了一下配置，可以直接帮助我们自动捕获完整的移动端首页长图，小编以自己的博客网站测试，简直是宝藏，这个小技能能帮助小编直接保存很多只能纪念的项目，用于分享等。</p>
+<pre><code class="language-js">// 获取网页截图
+const puppeteer = require('puppeteer');
+puppeteer.launch().then(async browser =&gt; {
+  const page = await browser.newPage();
+  console.log('获取网页中..........')
+  await page.goto('https://wangenbo.cn', {
+    timeout: 0 //传0则为无限等待，直到加载渲染完毕
+  });
+  /** 
+   * screenshot
+   * path 路径
+   * fullPage 全部图片
+   * omitBackground 不允许透明截图
+    */
+  console.log('图片捕获中..........')
+  await page.screenshot({path: 'screenshot.png',fullPage: true, omitBackground:false});
+  await browser.close();
+});
+</code></pre>
+<h4 id="pdf">pdf</h4>
+<p>这是puppeteer带给我的第二惊喜，我们前端一般都有想过自己做过简历，为了保证格式，样式的完整便捷，都需要最后用PDF格式保存，而puppeteer可以将我们自己设计的简历以自己想要的格式通过PDF导出保存，话不多说</p>
+<pre><code class="language-js">const puppeteer = require('puppeteer');
+
+(async () =&gt; {
+  const browser = await  puppeteer.launch() 
+  const page = await browser.newPage();
+  await page.goto('http://localhost:8080', {waitUntil: 'networkidle2'});
+
+  await page.emulateMedia('screen');
+  await page.pdf({path: 'webkubor.pdf', format: 'A4',scale: 0.7,margin:{top: '20px',left: '20px',bottom: '20px',right: '20px'}}); // create a PDF
+  await browser.close();
+})();
+</code></pre>
+<h4 id="test">test</h4>
+<p>puppeteer是一个支持UI测试，自动提交表单的node库，在测试体验中，又好像回到了当年JQ独领风骚的年代，这里小编选择了最近一个网红网站，做自动化UI测试，点击测试</p>
+<pre><code class="language-js">const puppeteer = require('puppeteer');
+const iPhone = puppeteer.devices['iPhone 6'];
+const clickMenu = '.van-nav-bar__right'
+const goBack = '.van-nav-bar__left'
+
+puppeteer.launch({headless: false}).then(async browser =&gt; {
+  const page = await browser.newPage();
+  await page.goto('https://www.priv-shield.com', {
+    waitUntil: 'networkidle0',
+  }); 
+  await page.emulate(iPhone);
+  // 开始自动化测试
+  console.log('test start.....')
+  await page.screenshot({ path: 'home.png',fullPage: true, omitBackground:false });
+  await page.waitFor(1000)
+
+  console.log(&quot;The menu function is normal&quot;);
+  await page.click(clickMenu);
+  await page.screenshot({path: 'menu.png',fullPage: true, omitBackground:false});
+  await page.waitFor(1000)
+
+ // await page.waitForSelector('.form .item:nth-child(2) button') //测试节点
+  await page.click('.menu  .item:nth-child(6)');
+  await page.waitFor(1000)
+  await page.screenshot({path: 'login.png',fullPage: true, omitBackground:false});
+  const phone = await page.$('.form .item:nth-child(1) input')
+  await page.screenshot({path: 'phone.png',fullPage: true, omitBackground:false});
+  await phone.type('18152232326') // 填写手机号
+  await page.waitFor(1000)
+  
+  const code = await page.$('.form .item:nth-child(2) input')
+  await code.type('90876')  // 填写验证码
+  const codeBtn = await page.$('.form .item:nth-child(2) button')
+  await codeBtn.click()
+  await page.screenshot({path: 'code.png',fullPage: true, omitBackground:false});
+  await page.waitFor(1000)
+
+  await page.click(clickMenu);
+  await page.waitFor(500)
+  await page.click('.menu .item:nth-child(2)'); 
+  console.log(&quot;The secret page is normal&quot;);
+  await page.screenshot({path: 'secret.png',fullPage: true, omitBackground:false});
+
+
+  await page.click(goBack);
+  await page.waitFor(500)
+  await page.click(clickMenu);
+  await page.waitFor(500)
+  await page.click('.menu .item:nth-child(3)'); 
+  await page.waitFor(500)
+
+  await page.click(clickMenu);
+  await page.waitFor(800)
+  await page.click('.menu .item:nth-child(4)'); 
+  await page.waitFor(800)
+
+  await page.click(clickMenu);
+  await page.waitFor(800)
+  await page.click('.menu .item:nth-child(5)');
+  await page.waitFor(800)
+
+  await page.click(clickMenu);
+  await page.waitFor(800)
+  await page.click('.menu .item:nth-child(7)'); 
+  await page.waitFor(800)
+
+
+  await page.click(clickMenu);
+  await page.waitFor(800)
+  await page.click('.menu .item:nth-child(8)');
+  await page.waitFor(800)
+
+  await browser.close();
+});
+</code></pre>
+<h5 id="以下就是我的博客长图了">以下就是我的博客长图了</h5>
+<figure data-type="image" tabindex="1"><img src="https://tva1.sinaimg.cn/large/006tNbRwly1garc5ho9usj30m864sh98.jpg" alt="我的博客长图" loading="lazy"></figure>
+<h4 id=""></h4>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#puppeteer">puppeteer</a><br>
+*
+<ul>
+<li><a href="#start">start</a></li>
+<li><a href="#screenshot">screenshot</a></li>
+<li><a href="#pdf">pdf</a></li>
+<li><a href="#test">test</a>
+<ul>
+<li><a href="#%E4%BB%A5%E4%B8%8B%E5%B0%B1%E6%98%AF%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2%E9%95%BF%E5%9B%BE%E4%BA%86">以下就是我的博客长图了</a></li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
