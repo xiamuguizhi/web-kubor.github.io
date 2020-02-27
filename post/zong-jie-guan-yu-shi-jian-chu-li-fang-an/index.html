@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>JSON反序列化实现一行代码的深克隆  | webkubor</title>
+<title>总结关于时间处理方案 | webkubor</title>
 <meta name="description" content="不积跬步，无以至千里" />
 <link rel="shortcut icon" href="https://wangenbo.cn//favicon.ico?v=1582814338871">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -104,126 +104,152 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              JSON反序列化实现一行代码的深克隆 
+              总结关于时间处理方案
             </h2>
             <div class="post-info">
               <span>
-                2019-10-23
+                2020-02-27
               </span>
               <span>
-                4 min read
+                3 min read
               </span>
+              
+                <a href="https://wangenbo.cn/js" class="post-tag">
+                  # js
+                </a>
+              
+                <a href="https://wangenbo.cn/vue" class="post-tag">
+                  # vue
+                </a>
+              
+                <a href="https://wangenbo.cn/poykPTcMP" class="post-tag">
+                  # 玩转js
+                </a>
+              
+                <a href="https://wangenbo.cn/dTECJI-wn" class="post-tag">
+                  # 原生
+                </a>
               
             </div>
             
-              <img class="post-feature-image" src="https://tva1.sinaimg.cn/large/006y8mN6ly1g880htbtsrj31gs0o6abj.jpg" alt="">
+              <img class="post-feature-image" src="https://wangenbo.cn//post-images/zong-jie-guan-yu-shi-jian-chu-li-fang-an.jpg" alt="">
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>日常逼逼来了,有个小学弟在朋友圈狂秀jquery写的动态切换,再加上比较简洁,一行就能实现,一时间大家都在说.虽然这在项目中是个寻常的操作,不过对于还在学专业课知识的他们来说已经很不错了,我们是不是也需要更有拓展精神呢?接下来就是传说当中的网红深克隆法的讲解.</p>
-<!-- more -->
-<blockquote>
-<p>我先不说,直接发代码,能看懂的就不用看接下来的讲解内容,反正也不难理解</p>
-</blockquote>
-<pre><code class="language-js">const newObj = JSON.parse(JSON.stringify(oldObj));
+                <p>接下来总结一下结合项目中遇到的较多时间处理方案<br>
+时间戳转化在项目中多处用到，尤其是种草模块涉及较多</p>
+<h2 id="时间戳格式化">时间戳格式化</h2>
+<p>使用</p>
+<pre><code>Helper.dateFormat(new Date(), 'yyyy-MM-dd hh:mm:ss')
 </code></pre>
-<p>讲解慢慢来,我自己也总结一下,现在es6已经在移动端开发用了起来,也有很多现成的工具可以帮助我们将ES5和ES6之前相互相互转化,为了以后大发展,能用es6提供的语法糖就用,干嘛不用呢?</p>
-<ul>
-<li>JavaScript的基础类型现在包括:undefined,null,boolean,number,string,symbol(es6加的,需要知道),引用类型就是object了.</li>
-</ul>
-<p>我们说深克隆,难道有浅克隆吗?为什么说的那么麻烦又晦涩呢?</p>
-<ul>
-<li>有,有浅克隆,而且有比较多的办法实现浅克隆,浅克隆的原理我理解为保存指针,就是我们在C,Java中的那种指针,浅克隆的弊端是在克隆的新对象中,我们的相关操作会影响原来的函数.接下来,我就全贴代码了</li>
-</ul>
-<pre><code class="language-js">  // 面向过程编程
-        function shallowClone(o) {
-            const obj = {};
-            // 使用 for ... in 循环遍历数组----for (变量 in 对象)
-            for (let key in o) {
-                obj[key] = o[key]
-            }
-
-            return obj;
-        }
-
-        // 从简单的形式理解{}里的定义声明方式:
-        const oldObj = {
-            a: 1,
-            b: [2, 3, 'dfdfdf', 96],
-            c: {
-                h: {
-                    i: 2
-                }
-            }
-        }
-
-        const newObj = shallowClone(oldObj);
-        console.log(newObj.c.h, oldObj.c.h);
-        if (newObj.c.h === oldObj.c.h) {
-            console.log('浅克隆成功');
-        }
-        newObj.c.h.i = 'i am changed!'
-        console.log('oldObj.c.h.i=' + oldObj.c.h.i);
-
-
-        // 最快的深度克隆,一行代码
-        console.log('---------------');
-        const JsonObj = JSON.parse(JSON.stringify(oldObj));
-        if (JsonObj.a === oldObj.a) {
-            console.log('克隆成功');
-            JsonObj.a = 'i love you';
-            if (JsonObj.a === oldObj.a) {
-                console.log('深克隆失败')
-            } else {
-                console.log('深克隆成功')
-            }
-        }
-
+<p>函数</p>
+<pre><code class="language-js">function dateFormat(date, fmt) {
+  var o = {
+    'M+': date.getMonth() + 1,
+    'd+': date.getDate(),
+    'h+': date.getHours(),
+    'm+': date.getMinutes(),
+    's+': date.getSeconds(),
+    'q+': Math.floor((date.getMonth() + 3) / 3),
+    'S': date.getMilliseconds()
+  }
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length))
+  }
+  for (var k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)))
+    }
+  }
+  return fmt
+}
 </code></pre>
-<blockquote>
-<p>怎么样,是不是特别好用,但是这个方法是有弊端的,我只发现了一个,然后问了一下度娘,这坑还挺多的,往下看就知道了,最好自己试一试:</p>
-</blockquote>
-<pre><code class="language-js">        //构造函数
-        function person(pname) {
-            // console.log(this);
-            this.name = pname;
-        }
-        const Messi = new person('Messi');
-
-        function say() {
-            console.log('you say hi i say hi hi !');
-        }
-        const testObj = {
-            a: say,
-            b: new Array(1),
-            c: new RegExp('ab+c', 'i'),
-            d: Messi
-        };
-
-        const tbObj = JSON.parse(JSON.stringify(testObj));
-        // 无法复制函数
-        console.log(tbObj.a, testObj.a); // undefined [Function: say]
-        // 稀疏数组复制错误
-        console.log(tbObj.b[0], testObj.b[0]); // null undefined
-        // 无法复制正则对象
-        console.log(tbObj.c, testObj.c); // {} /ab+c/i
-        // 构造函数指向错误
-        console.log(tbObj.d.constructor, testObj.d.constructor);
-        // [Function: Object] [Function: person]
-        const oldObj = {};
-        oldObj.a = oldObj;
-        const newObj = JSON.parse(JSON.stringify(oldObj));
-        console.log(newObj.a, oldObj.a); // TypeError: Converting circular structure to JSON
-        // 对象的循环引用会抛出错误.
-
+<h2 id="xx个小时前发布">xx个小时前发布</h2>
+<p>ios在对于new Date解析的时候存在问题，所以需要做一下处理new Date(time.replace(/-/g,'/')).getTime()，如下所以，以下功能将 2019-4-45 =》几周前</p>
+<pre><code>function getDateDiffCountdown(time) {
+  let dateTimeStamp = new Date(time.replace(/-/g,'/')).getTime()
+  let result = time
+  let minute = 1000 * 60
+  let hour = minute * 60
+  let day = hour * 24
+  let month = day * 30
+  let now = new Date().getTime()
+  let diffValue = now - dateTimeStamp
+  if (diffValue &lt; 0) return
+  var monthC = diffValue / month
+  let weekC = diffValue / (7 * day)
+  let dayC = diffValue / day
+  let hourC = diffValue / hour
+  let minC = diffValue / minute
+  if (monthC &gt;= 1) {
+    return result
+  }
+  if (weekC &gt;= 1) {
+    result = parseInt(weekC) + &quot;周前&quot;
+    return result;
+  }
+  if (dayC &gt;= 1) {
+    result = parseInt(dayC) + &quot;天前&quot;
+    return result;
+  }
+  if (hourC &gt;= 1) {
+    result = parseInt(hourC) + &quot;小时前&quot;
+    return result;
+  }
+  if (minC &gt;= 1) {
+    result = parseInt(minC) + &quot;分钟前&quot;
+    return result
+  }
+  return &quot;刚刚&quot;
+}
 </code></pre>
-<blockquote>
-<p>哈哈,刺激不刺激,惊喜不惊喜</p>
-</blockquote>
+<h2 id="活动倒计时时间显示">活动倒计时时间显示</h2>
+<p>参数（开始时间，结束时间，输出时间差的格式）</p>
+<pre><code class="language-js">getDateDiff(start, currentTime, 'second') // 活动已经开始xx秒
+</code></pre>
+<pre><code class="language-js">function getDateDiff(startTime, endTime, diffType) {
+  // 将xxxx-xx-xx的时间格式，转换为 xxxx/xx/xx的格式
+  startTime = startTime.replace(/\-/g, '/')
+  endTime = endTime.replace(/\-/g, '/')
+
+  // 将计算间隔类性字符转换为小写
+  diffType = diffType.toLowerCase()
+  var sTime = new Date(startTime) // 开始时间
+  var eTime = new Date(endTime) // 结束时间
+  // 作为除数的数字
+  var divNum = 1
+  switch (diffType) {
+    case 'second':
+      divNum = 1000
+      break
+    case 'minute':
+      divNum = 1000 * 60
+      break
+    case 'hour':
+      divNum = 1000 * 3600
+      break
+    case 'day':
+      divNum = 1000 * 3600 * 24
+      break
+    default:
+      break
+  }
+  return parseInt((eTime.getTime() - sTime.getTime()) / parseInt(divNum))
+}
+</code></pre>
 
               </div>
               <div class="toc-container">
-                
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%97%B6%E9%97%B4%E6%88%B3%E6%A0%BC%E5%BC%8F%E5%8C%96">时间戳格式化</a></li>
+<li><a href="#xx%E4%B8%AA%E5%B0%8F%E6%97%B6%E5%89%8D%E5%8F%91%E5%B8%83">xx个小时前发布</a></li>
+<li><a href="#%E6%B4%BB%E5%8A%A8%E5%80%92%E8%AE%A1%E6%97%B6%E6%97%B6%E9%97%B4%E6%98%BE%E7%A4%BA">活动倒计时时间显示</a></li>
+</ul>
+</li>
+</ul>
+
               </div>
             </div>
           </article>
@@ -232,9 +258,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://wangenbo.cn/post/wol4JdTno">
+            <a href="https://wangenbo.cn/post/es6-xin-te-xing-ni-xue-quan-liao-ma">
               <h3 class="post-title">
-                关于storage存储的那点事
+                ES6新特性你学全了吗
               </h3>
             </a>
           </div>

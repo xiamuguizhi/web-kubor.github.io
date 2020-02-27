@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wangenbo.cn/</id>
     <title>webkubor</title>
-    <updated>2020-02-26T04:24:34.347Z</updated>
+    <updated>2020-02-27T14:39:21.683Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wangenbo.cn/"/>
     <link rel="self" href="https://wangenbo.cn/atom.xml"/>
@@ -10,6 +10,13 @@
     <logo>https://wangenbo.cn/images/avatar.png</logo>
     <icon>https://wangenbo.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, webkubor</rights>
+    <entry>
+        <title type="html"><![CDATA[总结关于时间处理方案]]></title>
+        <id>https://wangenbo.cn/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an</id>
+        <link href="https://wangenbo.cn/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an">
+        </link>
+        <updated>2020-02-27T14:36:52.000Z</updated>
+    </entry>
     <entry>
         <title type="html"><![CDATA[ES6新特性你学全了吗]]></title>
         <id>https://wangenbo.cn/post/es6-xin-te-xing-ni-xue-quan-liao-ma</id>
@@ -85,17 +92,6 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>从业务中成长,从代码中感悟。<br>
 原生JS是前端的立身之本也不为过，无论后期转node， TS还是使用框架，都跳不过这个坎，必要时候，我们还是要巩固学习深化javascript</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[正则表达式]]></title>
-        <id>https://wangenbo.cn/post/MB8dzS--A</id>
-        <link href="https://wangenbo.cn/post/MB8dzS--A">
-        </link>
-        <updated>2019-10-23T04:23:34.000Z</updated>
-        <summary type="html"><![CDATA[<p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>其实开发过程中，一般我们不会去专门的记正则，但是我们需要知道一些简单的正则处理方式，接下来，我会从开始简单的讲下，正则，再结合业务举例我们业务中的使用场景</p>
 ]]></content>
     </entry>
 </feed>
