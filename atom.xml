@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://wangenbo.cn/</id>
+    <id>http://localhost:4000</id>
     <title>webkubor</title>
-    <updated>2020-02-27T14:39:21.683Z</updated>
+    <updated>2020-04-04T03:23:11.280Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://wangenbo.cn/"/>
-    <link rel="self" href="https://wangenbo.cn/atom.xml"/>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
     <subtitle>不积跬步，无以至千里</subtitle>
-    <logo>https://wangenbo.cn/images/avatar.png</logo>
-    <icon>https://wangenbo.cn/favicon.ico</icon>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
     <rights>All rights reserved 2020, webkubor</rights>
     <entry>
         <title type="html"><![CDATA[总结关于时间处理方案]]></title>
-        <id>https://wangenbo.cn/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an</id>
-        <link href="https://wangenbo.cn/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an">
+        <id>http://localhost:4000/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an</id>
+        <link href="http://localhost:4000/post/zong-jie-guan-yu-shi-jian-chu-li-fang-an">
         </link>
         <updated>2020-02-27T14:36:52.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[ES6新特性你学全了吗]]></title>
-        <id>https://wangenbo.cn/post/es6-xin-te-xing-ni-xue-quan-liao-ma</id>
-        <link href="https://wangenbo.cn/post/es6-xin-te-xing-ni-xue-quan-liao-ma">
+        <id>http://localhost:4000/post/es6-xin-te-xing-ni-xue-quan-liao-ma</id>
+        <link href="http://localhost:4000/post/es6-xin-te-xing-ni-xue-quan-liao-ma">
         </link>
         <updated>2020-01-09T06:46:18.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[vue2.0到3.0的双向绑定的原理变更到实现]]></title>
-        <id>https://wangenbo.cn/post/vue20-dao-30-de-shuang-xiang-bang-ding-de-yuan-li-bian-geng-dao-shi-xian</id>
-        <link href="https://wangenbo.cn/post/vue20-dao-30-de-shuang-xiang-bang-ding-de-yuan-li-bian-geng-dao-shi-xian">
+        <id>http://localhost:4000/post/vue20-dao-30-de-shuang-xiang-bang-ding-de-yuan-li-bian-geng-dao-shi-xian</id>
+        <link href="http://localhost:4000/post/vue20-dao-30-de-shuang-xiang-bang-ding-de-yuan-li-bian-geng-dao-shi-xian">
         </link>
         <updated>2020-01-07T07:58:51.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[团队开发-必掌握点-git项目托管]]></title>
-        <id>https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan</id>
-        <link href="https://wangenbo.cn/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
+        <id>http://localhost:4000/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan</id>
+        <link href="http://localhost:4000/post/tuan-dui-kai-fa-bi-zhang-wo-dian-git-xiang-mu-tuo-guan">
         </link>
         <updated>2019-12-24T06:04:23.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[vue的bug？触发vue数据响应解决方案]]></title>
-        <id>https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an</id>
-        <link href="https://wangenbo.cn/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an">
+        <id>http://localhost:4000/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an</id>
+        <link href="http://localhost:4000/post/vue-de-bughong-fa-vue-shu-ju-xiang-ying-jie-jue-fang-an">
         </link>
         <updated>2019-12-24T06:00:45.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[Visual Studio Code + eslint + Standard 具体配置分享]]></title>
-        <id>https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang</id>
-        <link href="https://wangenbo.cn/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang">
+        <id>http://localhost:4000/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang</id>
+        <link href="http://localhost:4000/post/visual-studio-code-eslint-standard-ju-ti-pei-zhi-fen-xiang">
         </link>
         <updated>2019-12-24T05:57:48.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[业务中关于数组的常用场景方法总结]]></title>
-        <id>https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie</id>
-        <link href="https://wangenbo.cn/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
+        <id>http://localhost:4000/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie</id>
+        <link href="http://localhost:4000/post/ye-wu-zhong-guan-yu-shu-zu-de-chang-yong-chang-jing-fang-fa-zong-jie">
         </link>
         <updated>2019-12-24T05:54:17.000Z</updated>
     </entry>
     <entry>
         <title type="html"><![CDATA[前端处理模糊搜索 + 大小写不敏感]]></title>
-        <id>https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan</id>
-        <link href="https://wangenbo.cn/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
+        <id>http://localhost:4000/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan</id>
+        <link href="http://localhost:4000/post/qian-duan-chu-li-mo-hu-sou-suo-da-xiao-xie-bu-min-gan">
         </link>
         <updated>2019-12-24T05:48:53.000Z</updated>
         <summary type="html"><![CDATA[<p>前端时间公司的微服务转化为文档数据库mongodb，除了维护微服务外，一些前端的交互功能叶需要有相应的优化调整</p>
@@ -72,8 +72,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[自动化？爬虫？性能测试？puppeteer都能做到]]></title>
-        <id>https://wangenbo.cn/post/nr1IMv43q</id>
-        <link href="https://wangenbo.cn/post/nr1IMv43q">
+        <id>http://localhost:4000/post/nr1IMv43q</id>
+        <link href="http://localhost:4000/post/nr1IMv43q">
         </link>
         <updated>2019-11-29T09:59:49.000Z</updated>
         <summary type="html"><![CDATA[<p>今天日常技术群讨论到Chrome的无头浏览器puppeteer，站主在掘金上简单的搜了一下，爬虫、性能测试，自动化，居然都可以做，简单的跟着官网api走了一遍，发现了一些骚操作，尤其是自动渲染目标网站长图，PDF导出</p>
@@ -83,8 +83,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[JavaScript的DOM的接口回顾]]></title>
-        <id>https://wangenbo.cn/post/IZm_9cOeI</id>
-        <link href="https://wangenbo.cn/post/IZm_9cOeI">
+        <id>http://localhost:4000/post/IZm_9cOeI</id>
+        <link href="http://localhost:4000/post/IZm_9cOeI">
         </link>
         <updated>2019-10-23T04:29:22.000Z</updated>
         <summary type="html"><![CDATA[<p>从业务中成长,从代码中感悟。<br>
